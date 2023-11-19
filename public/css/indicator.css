@@ -1,0 +1,98 @@
+.indicator-title {
+    height: 80px;
+}
+
+.titulo-contenido {
+    background-color: #003e67;
+    text-align: center;
+    color: #fff;
+    ;
+    font-family: GothamRoundedBold, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.mapadiv {
+    width: 15%;
+    margin: auto;
+}
+
+.mapadiv path {
+    fill: #F0E68C;
+    stroke: #8B4513;
+    stroke-width: 2PX;
+}
+
+.cls-1 .cls-2,
+.cls-5,
+.cls-9 {
+    opacity: 0.2;
+}
+
+.cls-2 {
+    fill: url(#Áåçûìÿííûé_ãðàäèåíò_4);
+}
+
+.cls-3 {
+    fill: #c34191;
+}
+
+.cls-4 {
+    fill: #e94e1b;
+}
+
+.cls-5 {
+    fill: url(#Áåçûìÿííûé_ãðàäèåíò_4-2);
+}
+
+.cls-6 {
+    fill: #ffde00;
+}
+
+.cls-7 {
+    fill: #54b6e0;
+}
+
+.cls-8 {
+    fill: #2d2e83;
+}
+
+.cls-9 {
+    fill: url(#Áåçûìÿííûé_ãðàäèåíò_4-3);
+}
+
+.cls-10 {
+    fill: #544b9a;
+}
+
+.cls-11 {
+    fill: none;
+    stroke: #36a9e1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5px;
+}
+
+.cls-12,
+.cls-14 {
+    font-size: 12px;
+}
+
+.cls-12,
+.cls-13 {
+    fill: #575756;
+    font-family: ArialMT, Arial;
+}
+
+.cls-13 {
+    font-size: 11.5px;
+}
+
+.cls-14 {
+    fill: #1d1d1b;
+    font-family: Arial-BoldMT, Arial;
+    font-weight: 700;
+}
+
+.cls-15 {
+    letter-spacing: -0.06em;
+}

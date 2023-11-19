@@ -1,0 +1,460 @@
+        @charset "utf-8";
+        /* CSS Document */
+        
+        @import url('//db.onlinewebfonts.com/c/ae8f19f441b335c3fda30febf5069c5a?family=Gotham+Rounded');
+        @font-face {
+            font-family: "Gotham Rounded";
+            src: url("//db.onlinewebfonts.com/t/ae8f19f441b335c3fda30febf5069c5a.eot");
+            src: url("//db.onlinewebfonts.com/t/ae8f19f441b335c3fda30febf5069c5a.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/ae8f19f441b335c3fda30febf5069c5a.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/ae8f19f441b335c3fda30febf5069c5a.woff") format("woff"), url("//db.onlinewebfonts.com/t/ae8f19f441b335c3fda30febf5069c5a.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/ae8f19f441b335c3fda30febf5069c5a.svg#Gotham Rounded") format("svg");
+        }
+        
+        @import url('//db.onlinewebfonts.com/c/d31d488d2171c1668c15962fc6cf1ef7?family=Gotham+Rounded+Book');
+        @font-face {
+            font-family: "Gotham Rounded Book";
+            src: url("//db.onlinewebfonts.com/t/d31d488d2171c1668c15962fc6cf1ef7.eot");
+            src: url("//db.onlinewebfonts.com/t/d31d488d2171c1668c15962fc6cf1ef7.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d31d488d2171c1668c15962fc6cf1ef7.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d31d488d2171c1668c15962fc6cf1ef7.woff") format("woff"), url("//db.onlinewebfonts.com/t/d31d488d2171c1668c15962fc6cf1ef7.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d31d488d2171c1668c15962fc6cf1ef7.svg#Gotham Rounded") format("svg");
+        }
+        
+        .sinVinetas a {
+            color: black !important;
+            text-decoration: none;
+            background-color: transparent;
+        }
+        
+        body {
+            font-family: "Gotham Rounded Book", "Gotham Rounded";
+        }
+        
+        .bordeNaranja {
+            border: white solid 1px;
+        }
+        
+        .anchoPagina {
+            /* width: 1200px;
+	margin: -15px auto; */
+            width: 950px;
+            margin-top: -15px;
+            margin-right: auto;
+            margin-bottom: -15px;
+            margin-left: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+        
+        .breadcrumb_ {
+            font-family: "Gotham Rounded Book";
+        }
+        
+        .breadcrumb_.aire {
+            color: #0f80b8 !important;
+        }
+        
+        .breadcrumb_.agua {
+            color: #00b8cd !important;
+        }
+        
+        .breadcrumb_.indicadores,
+        .breadcrumb_.alimentos {
+            color: #cf414c !important;
+        }
+        
+        .breadcrumb_.cambioC {
+            color: #eaa71a !important;
+        }
+        
+        .breadcrumb_.espacio {
+            color: #9d5b31 !important;
+        }
+        
+        .mtHeader {
+            margin-top: 340px;
+        }
+        
+        .flotarDerecha {
+            float: right;
+        }
+        
+        .mR30 {
+            margin-right: 30px;
+        }
+        
+        .footerSecAmb {}
+        
+        .logos {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        
+        .logosRedondos {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .posicionFija {
+            position: fixed;
+        }
+        /*CONTENIDOS*/
+        
+        .contenidoSecAmb {
+            width: 95%;
+            color: #0f80b8;
+        }
+        
+        .centradoDiv {
+            margin: 0px auto;
+            font-size: 14px;
+        }
+        
+        h1,
+        h2,
+        h3 {
+            font-family: "Gotham Rounded Book";
+        }
+        /* h1,h2 { font-size: 22px; } */
+        
+        h3 {
+            font-size: 18px;
+            text-align: justify;
+        }
+        
+        .centradoDiv p {
+            margin-top: 20px;
+            font-family: "Gotham Rounded Book";
+            font-size: 16px;
+            color: #000000;
+        }
+        
+        .centrado {
+            text-align: center;
+        }
+        /*Color títulos*/
+        
+        .colorAire {
+            color: #0f80b8;
+            font-size: 22px;
+        }
+        
+        .colorAgua {
+            color: #00b8cd;
+        }
+        
+        .colorIndicadores {
+            color: #cf414c;
+        }
+        
+        .colorAlimentos {
+            color: #cf414c !important;
+            font-size: 22px !important;
+            font-weight: bold;
+        }
+        
+        .colorCambioC,
+        .colorcambioclimatico {
+            color: #eaa71a;
+        }
+        
+        .colorEspacio {
+            color: #9d5b31 !important;
+        }
+        
+        .colorMedicamentos {
+            color: #662d8d;
+        }
+        
+        .colorSeguridadquimica {
+            color: #ed5a24;
+        }
+        
+        .colorETOZ {
+            color: #0ec546;
+        }
+        
+        .colorParticipa {
+            color: #0097dc;
+        }
+        
+        .colorIndicadores {
+            color: #000000;
+            font-size: 16px;
+        }
+        
+        .bold140p {
+            font-size: 140%;
+            font-family: "Gotham Rounded";
+        }
+        
+        .seccion {
+            padding: 5px 13px;
+            width: max-content;
+            color: white;
+            font-family: "Gotham Rounded";
+        }
+        
+        .seccionIcono {
+            vertical-align: top;
+            margin-right: 20px;
+        }
+        
+        .fondoAire {
+            background: #0f80b8;
+            color: #FFF;
+            font-size: 22px;
+        }
+        
+        .fondoAgua {
+            background: #00b8cd;
+        }
+        
+        .fondoPolitica {
+            background: #c4d22d;
+        }
+        
+        .fondoIndicadores {
+            background: #cf414c;
+        }
+        
+        .fondoAlimentos {
+            background: #cf414c;
+        }
+        
+        .fondoCambioC {
+            background: #eaa71a;
+        }
+        
+        .fondoEspacio {
+            background: #9d5b31;
+            color: white !important;
+        }
+        
+        .fondoEtoz {
+            background: #0ec546;
+        }
+        
+        .fondoSeguridadquimica {
+            background: #ed5a24;
+        }
+        
+        .fondoMedicamentos {
+            background: #662d8d;
+        }
+        
+        .sinSaltoLinea {
+            display: inline;
+        }
+        
+        .mt-20 {
+            margin-top: -20px;
+        }
+        
+        .mt20 {
+            margin-top: 20px;
+            color: #cf414c;
+            font-size: 14px;
+            font-family: "Gotham Rounded Book";
+        }
+        
+        .mt40 {
+            margin-top: 40px;
+            color: #0f80b8;
+            font-size: 18px;
+            font-family: "Gotham Rounded Book";
+        }
+        
+        .mt80 {
+            margin-top: 80px;
+            color: #cf414c;
+        }
+        
+        .mt80 {
+            margin-top: 80px;
+            color: #0097dc;
+        }
+        
+        .mt80 {
+            margin-top: 80px;
+            color: #ed5a24;
+        }
+        
+        .verMas {
+            text-align: right;
+            text-decoration: underline;
+            margin-top: -10px;
+            font-size: 0.9em;
+        }
+        
+        .cursiva {
+            font-style: italic;
+        }
+        
+        .mb0 {
+            margin-bottom: 0px;
+        }
+        /*Color líneas*/
+        
+        .lineaIndicadores {
+            border: 2px solid #cf414c;
+            color: #0f80b8;
+        }
+        
+        .lineaAlimentos {
+            border: 2px solid #cf414c;
+        }
+        
+        .lineaParticipa {
+            border: 2px color #0097dc;
+        }
+        
+        .lineaCambioC {
+            border: 2px solid #eaa71a;
+        }
+        
+        .lineaEspacio {
+            border: 2px solid #9d5b31;
+        }
+        
+        .lineaQuimica {
+            border: 2px solid #ed5a24;
+        }
+        
+        .lineaEtoz {
+            border: 2px solid #0ec546;
+        }
+        
+        .lineaMedicamentos {
+            border: 2px solid #662d8d;
+        }
+        
+        .lineaAireNotas {
+            border: thin solid #0f80b8;
+            margin-right: 50%;
+        }
+        
+        .lineaAire {
+            border: 2px solid #0f80b8;
+        }
+        
+        .lineaAgua {
+            border: 2px solid #00b8cd;
+        }
+        
+        .notaPiePagina {
+            font-size: 70%;
+            margin-top: -4px;
+            color: black;
+        }
+        /*TABLAS*/
+        
+        .alinearVerticalInicial {
+            vertical-align: initial;
+        }
+        
+        .alinearIzquierda {
+            text-align: left;
+        }
+        
+        table {
+            border-spacing: 10px 5px;
+        }
+        /*LISTAS*/
+        
+        ul.sinVinetas {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        /*TABLAS*/
+        
+        .alinearVerticalInicial {
+            vertical-align: initial;
+        }
+        
+        .alinearIzquierda {
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        table {
+            border-spacing: 10px 5px;
+            font-size: 16px;
+        }
+        /*LISTAS*/
+        
+        ul.sinVinetas {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            color: #000;
+            /* font-size: 0.9em; */
+        }
+        
+        .colornegro {
+            color: #000000;
+            font-size: 14px;
+        }
+        
+        .texto {
+            font-size: 0.9em;
+        }
+        
+        .titulos1 {
+            font-size: 14px;
+        }
+        
+        .titulos1 {
+            font-family: "Gotham Rounded Book";
+            font-size: 0.8px;
+        }
+        
+        .titulos1 {
+            font-family: "Gotham Rounded Book";
+            font-size: 14px;
+        }
+        
+        .titulo1 {
+            font-family: "Gotham Rounded Book";
+        }
+        
+        .titulo1 {
+            font-size: 0.8px;
+        }
+        
+        .texto {
+            font-size: 14px;
+        }
+        
+        .texto {
+            font-family: "Gotham Rounded Book";
+        }
+        
+        .texto {
+            font-family: "Gotham Rounded Book";
+        }
+        
+        .texto {
+            font-size: 14px;
+        }
+        
+        .titulo {
+            font-family: "Gotham Rounded Book";
+        }
+        
+        .texto {
+            font-size: 14px;
+        }

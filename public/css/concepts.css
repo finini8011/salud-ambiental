@@ -1,0 +1,11 @@
+.concept-title {
+    height: 80px;
+}
+
+.titulo-contenido {
+    background-color: #003e67;
+    text-align: center;
+    color: white;
+    font-family: GothamRoundedBold, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}

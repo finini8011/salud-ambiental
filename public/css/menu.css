@@ -1,0 +1,17 @@
+.titulo-contenido {
+    background-color: #003e67;
+    text-align: center;
+    color: white;
+    font-family: GothamRoundedBold, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.titulo-seccion {
+    font-family: GothamRoundedBold, "Gotham Rounded Book";
+    color: #003e67;
+    font-size:32px;
+}
+.subtitulo-seccion {
+    font-family: GothamRoundedBold, "Gotham Rounded Book";
+    color: #003e67;
+    font-size:22px;
+}

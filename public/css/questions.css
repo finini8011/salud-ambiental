@@ -1,0 +1,242 @@
+.ask-aire {
+    color: white;
+    background-color: #0f82bb;
+}
+
+.ask-alimentos {
+    color: white;
+    background-color: #d2414c;
+}
+
+.ask-agua {
+    color: white;
+    background-color: #00bbd0;
+}
+
+.ask-clima {
+    color: white;
+    background-color: #edaa1a;
+}
+
+.ask-espacio {
+    color: white;
+    background-color: #a05b31;
+}
+
+.ask-medicamentos {
+    color: white;
+    background-color: #662d91;
+}
+
+.ask-quimicos {
+    color: white;
+    background-color: #f05a24;
+}
+
+.ask-zoonosis {
+    color: white;
+    background-color: #0ec946;
+}
+
+.panel-questions {
+    max-height: 145px;
+    overflow: auto;
+}
+
+.blockquote {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor2 {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor3 {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor4 {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor5 {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor6 {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor7 {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor8 {
+    width: 900px;
+    height: 250px;
+    margin: 10px auto;
+    padding: 20px;
+    background: #fff;
+    overflow: auto;
+    font-family: 'Open Sans';
+    border-radius: 4px;
+}
+
+.contenedor hr {
+    background: #0f82bb;
+    width: 20%;
+    height: 5px;
+    border: none;
+    margin: 20px 0;
+    border-radius: 50px;
+}
+
+
+/* Scroll Personalizado */
+
+.contenedor::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor::-webkit-scrollbar-thumb {
+    background: #0f82bb;
+    border-radius: 5px;
+}
+
+.contenedor2::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor2::-webkit-scrollbar-thumb {
+    background: #d2414c;
+    border-radius: 5px;
+}
+
+.contenedor3::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor3::-webkit-scrollbar-thumb {
+    background: #00bbd0;
+    border-radius: 5px;
+}
+
+.contenedor4::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor4::-webkit-scrollbar-thumb {
+    background: #edaa1a;
+    border-radius: 5px;
+}
+
+.contenedor5::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor5::-webkit-scrollbar-thumb {
+    background: #662d91;
+    border-radius: 5px;
+}
+
+.contenedor6::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor6::-webkit-scrollbar-thumb {
+    background: #f05a24;
+    border-radius: 5px;
+}
+
+.contenedor7::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor7::-webkit-scrollbar-thumb {
+    background: #0ec946;
+    border-radius: 5px;
+}
+
+.contenedor8::-webkit-scrollbar {
+    width: 7px;
+}
+
+.contenedor8::-webkit-scrollbar-thumb {
+    background: #a05b31;
+    border-radius: 5px;
+}
+
+.contenedor1 {
+    width: 900px;
+    margin: 50px;
+    padding: 20px;
+    background: #fff;
+}
+
+body::-webkit-scrollbar {
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #003e67;
+}

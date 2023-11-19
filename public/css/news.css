@@ -1,0 +1,1371 @@
+.altura {
+    height: 340px;
+}
+
+.news-title {
+    margin-bottom: 15px;
+    margin-left: -15px;
+    color: #003e67;
+}
+
+.content {
+    display: flex;
+    margin-top: 10px;
+}
+
+.content-inside {
+    /* border: solid 2.1px #003e66; */
+    padding: 20px 20px 0 10px;
+    font-size: 11pt !important;
+    font-family: "Gotham Rounded Book", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.boton-register {
+    background-color: #033d65;
+    padding: 5px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-left: 15px;
+    color: white;
+    font-size: 14px;
+}
+
+.boton-consult {
+    background-color: #009de2;
+    padding: 5px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-left: 15px;
+    color: white;
+    font-size: 14px;
+}
+
+.contactenos {
+    background-image: url("../images/contactenos/FondoFormularioContactenos.png");
+}
+
+.icono-contactenos {
+    color: #023864;
+    border-bottom: 1px solid #023864;
+}
+
+.form-contactenos {
+    color: #023864;
+    border-left: 0px;
+    border-top: 0px;
+    padding: 5px;
+    font-size: 13px;
+    font-family: GothamRoundedBold;
+}
+
+.form-contactenos input[type=text],
+.form-contactenos input[type=email] {
+    height: 32px;
+}
+
+.form-contactenos input[type=text]::placeholder,
+.form-contactenos input[type=email]::placeholder,
+.form-contactenos input[type=number]::placeholder {
+    color: #003e66;
+}
+
+.form-contactenos input[type=text],
+.form-contactenos input[type=email],
+.form-contactenos input[type=number],
+.form-contactenos textarea {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #003e67;
+    background-color: transparent;
+    background-clip: padding-box;
+    border-radius: 0px 5px 5px 0px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border: 1px solid #003e66;
+    height: 32px;
+}
+
+.btn.blue {
+    background: #019ee2;
+    background: -moz-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    background: -webkit-linear-gradient(left, #019ee2 0%, rgba(0, 123, 255, .25) 100%);
+    background: linear-gradient(to right, #004085 0%, #019ee2 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e67d23', endColorstr='#fbb83b', GradientType=1);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.container-contactenos {
+    height: 64.5px;
+    width: 296px;
+    background-color: #003e67;
+    padding-left: 10px;
+    padding-top: 7px;
+}
+
+.rectangulo-contactenos {
+    width: 277px;
+    height: 48px;
+    border: solid 0.7px #ffffff;
+}
+
+.preguntas-frecuentes {
+    width: 178px;
+    height: 29px;
+    font-family: GothamRoundedBold;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.28px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.container-oficinas {
+    height: 64.5px;
+    width: 296px;
+    background-color: #89b450;
+    padding-left: 10px;
+    padding-top: 7px;
+}
+
+.oficinas {
+    width: 196.8px;
+    height: 52.7px;
+    font-family: GothamRoundedBold;
+    font-size: 15px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+}
+
+.puntos-recoleccion {
+    width: 294px;
+    height: 23px;
+    font-family: GothamRoundedBold;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: -0.38px;
+    text-align: center;
+    color: #003e66;
+    border-bottom: 1px solid #003e66;
+}
+
+.iconoNew {
+    height: 25px;
+}
+
+.number-wizard {
+    margin-right: 12px;
+    font-size: 21px;
+    font-family: GothamRoundedBold, Arial, Helvetica, sans-serif;
+}
+
+.alpha60 {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(255, 255, 255);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(255, 255, 255, 0.6);
+    /* For IE 5.5 - 7*/
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#ffffff00, endColorstr=#ffffff00);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff00, endColorstr=#ffffff00)";
+}
+
+body {
+    /*font-family: 'Varela Round', sans-serif;*/
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: dimgray;
+    font-weight: 300;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+.text-orange {
+    color: #e67d23;
+}
+
+.text-blue {
+    color: #005CA9;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.right-content {
+    width: 250px;
+    position: relative;
+}
+
+.form-control {
+    border-radius: 0px 18px 0px 18px;
+    padding: 0px 1.5rem;
+    line-height: 1em;
+    height: 2rem;
+}
+
+.right-content button.buscar {
+    position: absolute;
+    right: 5px;
+    top: 0.5rem;
+    content: ' ';
+    border: none;
+    width: 22px;
+    height: 1.2rem;
+    background: url(../img/icons/icono_buscar.svg) no-repeat;
+}
+
+.form-control::placeholder {
+    color: lightgray;
+}
+
+.breadcrumb {
+    background-color: white;
+    margin-bottom: 0rem;
+}
+
+.breadcrumb ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.breadcrumb li {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.breadcrumb li:not(:last-child):after {
+    content: "/";
+    position: relative;
+    left: 3px;
+    color: #005CA9;
+}
+
+.breadcrumb a {
+    color: #005CA9;
+}
+
+#homeSlider .carousel-inner {
+    position: relative;
+    z-index: 2;
+}
+
+#homeSlider .carousel-indicators,
+.subsections ol {
+    position: relative;
+    justify-content: space-between;
+    list-style: none;
+    top: -15px;
+    padding-left: 0px;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+.subsections ol {
+    display: flex;
+}
+
+#homeSlider .carousel-indicators>li,
+.subsections li {
+    width: 22%;
+    height: auto;
+    border: solid 1px lightgray;
+    box-shadow: 0px 2px 3px lightgray;
+    border-radius: 15px;
+    padding: 30px 15px 20px 15px;
+    color: #005CA9;
+    text-indent: 0;
+    opacity: 1;
+}
+
+.subsections li {
+    box-shadow: 0px 2px 18px grey;
+}
+
+#homeSlider .carousel-indicators>li a,
+.subsections li a {
+    color: #005CA9;
+}
+
+#homeSlider .carousel-indicators>li.active,
+.subsections li:hover,
+.subsections li.active {
+    color: white;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#005ca9+0,009fe3+100 */
+    background: #005ca9;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #005ca9 0%, #009fe3 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #005ca9 0%, #009fe3 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #005ca9 0%, #009fe3 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#005ca9', endColorstr='#009fe3', GradientType=1);
+    /* IE6-9 */
+}
+
+#homeSlider .carousel-indicators>li.active a,
+.subsections li:hover a,
+.subsections li.active a {
+    color: white;
+}
+
+#homeSlider .carousel-indicators .logo,
+.subsections .logo {
+    width: 120%;
+    height: 100px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+#homeSlider .carousel-indicators .text,
+.subsections .text {
+    width: 55%;
+    display: inline-block;
+    text-align: right;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+
+@media(max-width:768px) {
+    #homeSlider .carousel-indicators,
+    .subsections ol {
+        flex-wrap: wrap;
+    }
+    #homeSlider .carousel-indicators>li,
+    .subsections li {
+        width: 38%;
+    }
+    #homeSlider .carousel-indicators .logo,
+    .subsections .logo {
+        display: none;
+    }
+    #homeSlider .carousel-indicators .text,
+    .subsections .text {
+        width: 90%;
+        text-align: center;
+        height: 50px;
+    }
+}
+
+#homeSlider .carousel-indicators .logo_rest,
+.subsections .logo_rest {
+    background-image: url(images/menu/CronicasLogo.svg);
+    width: 330px;
+    height: 130px;
+}
+
+#homeSlider .carousel-indicators .active .logo_rest,
+.subsections li:hover .logo_rest,
+.subsections li.active .logo_rest {
+    background-image: url(../img/icons/dot_rest_white.svg);
+}
+
+#homeSlider .carousel-indicators .logo_carne,
+.subsections .logo_carne {
+    background-image: url(../img/icons/dot_carne_blue.svg);
+}
+
+#homeSlider .carousel-indicators .active .logo_carne,
+.subsections li:hover .logo_carne,
+.subsections li.active .logo_carne {
+    background-image: url(../img/icons/dot_carne_white.svg);
+}
+
+#homeSlider .carousel-indicators .logo_drog,
+.subsections .logo_drog {
+    background-image: url(../img/icons/dot_drog_blue.svg);
+}
+
+#homeSlider .carousel-indicators .active .logo_drog,
+.subsections li:hover .logo_drog,
+.subsections li.active .logo_drog {
+    background-image: url(../img/icons/dot_drog_white.svg);
+}
+
+#homeSlider .carousel-indicators .logo_salon,
+.subsections .logo_salon {
+    background-image: url(../img/icons/dot_salon_blue.svg);
+}
+
+#homeSlider .carousel-indicators .active .logo_salon,
+.subsections li:hover .logo_salon,
+.subsections li.active .logo_salon {
+    background-image: url(../img/icons/dot_salon_white.svg);
+}
+
+.btn.yellow {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e67d23+0,fbb83b+100 */
+    background: #e67d23;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #009de2 0%, #9bb2c1ed 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e67d23', endColorstr='#fbb83b', GradientType=1);
+    /* IE6-9 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.btn.yellow a {}
+
+#subsideSlider .btn {
+    z-index: 20;
+    padding: 0 15px;
+}
+
+#subsideSlider .carousel-inner {
+    position: relative;
+    z-index: 2;
+}
+
+#subsideSlider .carousel-indicators {
+    position: relative;
+    width: 120px;
+    justify-content: space-between;
+    list-style: none;
+    top: 15px;
+    padding-left: 0px;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+#subsideSlider .carousel-indicators li {
+    border: solid 2px #005ca9;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+}
+
+#subsideSlider .carousel-indicators li.active {
+    border: solid 2px #005ca9;
+    background: #e67d23;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #e67d23 0%, #fbb83b 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e67d23', endColorstr='#fbb83b', GradientType=1);
+    /* IE6-9 */
+}
+
+div.block {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0px 2px 10px lightgray;
+    border-radius: 0px 20px 0px 20px;
+    padding: 30px 30px;
+}
+
+.row.block {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.row.block.right {
+    box-shadow: 2px 2px 10px lightgray;
+}
+
+.row.block .btn.yellow {
+    padding: 10px 30px;
+}
+
+.subtitle {
+    color: #3D5DA6;
+    font-size: 1.8rem;
+    padding-bottom: 2rem;
+    line-height: 1.9rem;
+    width: 96%;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle::after {
+    content: ' ';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0px;
+    width: 3em;
+    height: 0.9rem;
+    border-radius: 0.45rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e67d23+0,fbb83b+100 */
+    background: #e67d23;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #e67d23 0%, #fbb83b 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e67d23', endColorstr='#fbb83b', GradientType=1);
+    /* IE6-9 */
+}
+
+.block .paragraph {
+    width: 90%;
+    line-height: 1.2em;
+}
+
+.container.enlaces {
+    margin-top: 45px;
+    margin-bottom: 30px;
+    border-top: solid #fbb83b 1px;
+    padding-top: 15px;
+}
+
+.enlaces .title {
+    color: #005CA9;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.enlaces ul {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.enlaces ul li {
+    color: #009FE3;
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+ul.tips {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2rem;
+}
+
+ul.tips li {
+    margin-bottom: 15px;
+}
+
+ul.tips li>img {
+    width: 60px;
+    margin-right: 29px;
+    /*height: 76px;
+margin-right: 16px;*/
+    display: inline-block;
+    vertical-align: top;
+}
+
+ul.tips li>p {
+    display: inline-block;
+    width: calc(100% - 100px);
+}
+
+.faqs {
+    padding-right: 30px;
+    height: 480px;
+    overflow: auto;
+}
+
+.faq_wrapper {}
+
+.nicescroll-cursors {
+    border: none !important;
+    background-color: #aaa !important;
+    border-radius: 4px !important;
+}
+
+.nicescroll-rails {
+    background-color: #ccc;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    width: 6px !important;
+}
+
+.faqs .btn-link {
+    padding-left: 40px;
+    position: relative;
+    text-align: left;
+    min-height: 3rem;
+    font-weight: 800;
+}
+
+.faqs .btn-link::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f054';
+    font-weight: 900;
+    position: absolute;
+    left: 0px;
+    top: 15%;
+    font-size: 2rem;
+    color: #e67d23;
+}
+
+.faqs .card {
+    margin-bottom: 1rem;
+    box-shadow: 0px 2px 10px lightgray;
+    border-radius: 0px 20px 0px 20px;
+    padding: 5px 15px;
+}
+
+
+/*.card-header .btn[aria-expanded=true] {
+color: #fff;
+background-color: #32bdb6;
+}*/
+
+.faqs .card.active-acc {
+    background-color: #005CA9;
+    color: white;
+}
+
+.faqs .card.active-acc .btn-link {
+    color: white;
+    text-decoration: none;
+}
+
+.faqs .card.active-acc .btn-link::before {
+    content: '\f078';
+}
+
+.faqs .card .card-body a {
+    font-weight: 400;
+    color: #e67d23;
+    text-decoration: underline;
+}
+
+.faqs .form-buscar {
+    margin-bottom: 1rem;
+}
+
+.faqs-btn {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.faqs-btn button {
+    position: absolute;
+    right: 5px;
+    top: 0.2rem;
+    content: ' ';
+    border: none;
+    width: 25px;
+    height: 25px;
+    background: url(../img/icons/icono_buscar.svg) no-repeat;
+}
+
+.faqs-btn.form-buscar input {
+    border-radius: 5px;
+    padding: 0px 45px 0px 15px;
+}
+
+.faqs-btn.form-buscar input::placeholder {
+    color: lightgray;
+}
+
+.gray-block {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e6e6e6+100 */
+    background: #ffffff;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #ffffff 0%, #e6e6e6 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ffffff 0%, #e6e6e6 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #ffffff 0%, #e6e6e6 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=1);
+    /* IE6-9 */
+    margin-top: 2rem;
+    padding: 30px 0px;
+}
+
+.form-newsletter {
+    background: white;
+    padding: 45px;
+    border-radius: 15px;
+}
+
+.newsletter>div:first-of-type>img {
+    max-width: 224px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.newsletter h3 {
+    line-height: 1.8rem;
+}
+
+.newsletter select {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,bfbfbf+100 */
+    background: #ffffff;
+    /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #bfbfbf 100%);
+    /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%, #bfbfbf 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #ffffff 0%, #bfbfbf 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bfbfbf', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.newsletter .input-group {
+    margin-bottom: 1.5rem;
+}
+
+.newsletter .input-group .input-group-prepend {
+    height: 3rem;
+    border-radius: 5px 0px 0px 5px;
+    width: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ddd;
+    color: #6b6b6b;
+}
+
+.newsletter .input-group .form-control {
+    height: 3rem;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.newsletter .input-group.conditions input {
+    width: 20px;
+    height: 30px;
+    margin-right: 15px;
+    /* outline: 2px groove #fbb83b; */
+}
+
+.newsletter .input-group.conditions input:checked {
+    background: gray;
+}
+
+.newsletter .input-group.conditions p {
+    width: calc(100% - 45px);
+    font-size: 0.9em;
+    font-style: italic;
+    color: gray;
+}
+
+.twitter-feed {
+    height: 515px;
+}
+
+#newsTable .info {
+    width: 50%;
+}
+
+#newsTable thead th {
+    border-bottom: none;
+    border-top: none;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        max-width: 1118px;
+        margin: 1.75rem auto;
+    }
+}
+
+@media (max-width:768px) {
+    .redes iframe {
+        width: 100%;
+    }
+    #newsTable td,
+    #newsTable .info {
+        width: 100%;
+        display: block;
+        padding: 15px 0px;
+    }
+    #newsTable .date {
+        display: none;
+    }
+}
+
+.pasos .text-big {
+    font-size: 1.8em;
+    font-weight: 800;
+}
+
+.pasos .line {
+    width: 24%;
+    height: 0.7rem;
+    border-radius: 0.45rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e67d23+0,fbb83b+100 */
+    background: #e67d23;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #e67d23 0%, #fbb83b 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e67d23', endColorstr='#fbb83b', GradientType=1);
+    /* IE6-9 */
+    margin: 0 auto;
+}
+
+.pasos img {
+    height: 56px;
+    margin: 10px 0px;
+}
+
+.pasos li {
+    margin: 5px;
+}
+
+.bluehand {
+    height: 100px;
+    margin-top: 15px;
+}
+
+.pasos .texto {
+    line-height: 1em;
+    min-height: 2.8em;
+}
+
+.regitro_triada .fa {
+    color: #e67d23;
+    margin: 0px 10px;
+}
+
+.normativas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.normativas .normativa {
+    width: 48%;
+    margin-top: 30px;
+}
+
+.normativa .icon {
+    width: 80px;
+    padding: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.normativa .content {
+    width: calc(100% - 100px);
+    display: inline-block;
+}
+
+.mapa {
+    border-radius: 0px 30px 0px 30px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#005ca9+0,009fe3+100 */
+    background: #005ca9;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #005ca9 0%, #009fe3 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #005ca9 0%, #009fe3 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #005ca9 0%, #009fe3 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#005ca9', endColorstr='#009fe3', GradientType=1);
+    /* IE6-9 */
+}
+
+.mapa h2 {
+    color: white;
+}
+
+.mapaExplain {
+    list-style: none;
+}
+
+.mapaExplain li {
+    margin-top: 15px;
+}
+
+.mapaExplain li i {
+    width: 30px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+.mapaExplain li img {
+    width: 100%;
+}
+
+.mapaExplain li>div {
+    width: calc(100% - 47px);
+    display: inline-block;
+}
+
+ul.concepto,
+ul.concepto2 {
+    list-style: none;
+    padding-left: 1em;
+    line-height: 1.1em;
+}
+
+ul.concepto li,
+ul.concepto2 li {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+ul.concepto li:before {
+    content: "•";
+    position: absolute;
+    left: -20px;
+    top: 2px;
+    color: #005ca9;
+    font-size: 2em;
+    vertical-align: middle;
+}
+
+ul.concepto2 li:before {
+    content: "•";
+    position: absolute;
+    left: -20px;
+    top: 2px;
+    color: #009fe3;
+    font-size: 2em;
+    vertical-align: middle;
+}
+
+.recomendaciones {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.recomendaciones>div {
+    width: 48%;
+}
+
+@media(max-width:768px) {
+    .recomendaciones img {
+        width: 60px;
+        margin: 15px 15px;
+    }
+    .recomendaciones>div {
+        width: 90%;
+    }
+}
+
+#ejemploSlider {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#ejemploSlider img {
+    width: 100px;
+}
+
+#ejemploSlider .carousel-indicators {
+    bottom: -50px;
+}
+
+#ejemploSlider .carousel-indicators li {
+    border: solid 2px #005ca9;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+}
+
+#ejemploSlider p {
+    min-height: 6em;
+    text-align: left;
+}
+
+#ejemploSlider .carousel-indicators li.active {
+    border: solid 2px #005ca9;
+    background: #e67d23;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e67d23 0%, #fbb83b 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #e67d23 0%, #fbb83b 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e67d23', endColorstr='#fbb83b', GradientType=1);
+    /* IE6-9 */
+}
+
+.estrategias {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 60px;
+}
+
+.estrategias>div {
+    width: 300px;
+    padding: 30px 0px;
+}
+
+.estrategias>div img {
+    height: 250px;
+    margin: 15px 15px;
+}
+
+.estrategias>div .text-blue {
+    height: 3em;
+}
+
+.estrategias .btn {
+    width: 60%;
+    min-width: 120px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.requerimientos {
+    margin-top: 2em;
+}
+
+.requerimientos>div {
+    margin-bottom: 2em;
+}
+
+.requerimientos h3 {
+    color: #3D5DA6;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+.requerimientos h4 {
+    color: #3D5DA6;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.1em;
+}
+
+.requerimientos p {
+    line-height: 1.2em;
+}
+
+.requerimientos small {
+    font-style: italic;
+    line-height: 1em;
+    font-size: 0.9em;
+}
+
+.requerimientos ul {
+    list-style: none;
+}
+
+.requerimientos ul li {
+    position: relative;
+}
+
+.requerimientos ul li:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    position: absolute;
+    top: 0.2em;
+    left: -1.5em;
+    font-weight: 900;
+    font-size: 1rem;
+    color: #e67d23;
+}
+
+.question {
+    color: #007bff;
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+.numeracion ol {
+    list-style: none;
+    counter-reset: li
+}
+
+.numeracion ol li::before {
+    content: counter(li);
+    color: #e67d23;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-weight: bold
+}
+
+.numeracion ol li {
+    counter-increment: li;
+}
+
+.verifica-lista {
+    height: 680px;
+    overflow-y: scroll;
+}
+
+.verifica-lista .text-blue {
+    font-size: 1.5em;
+}
+
+a {
+    color: #ffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.autocomplete-suggestion {
+    background: white;
+    padding: 5px 10px;
+    text-decoration: underline;
+    color: blue;
+}
+
+@media(min-width:1118px) {
+    #consulta .modal-content {
+        padding: 30px;
+    }
+}
+
+#consulta select {
+    max-width: 100%;
+}
+
+#consulta label {
+    min-width: 150px;
+}
+
+.registro_triada {
+    margin-top: 3em;
+}
+
+.btn {
+    position: relative;
+}
+
+.btn>.hover {
+    display: none;
+    position: absolute;
+    top: -100px;
+    left: -1em;
+    z-index: 20;
+    width: 450px;
+}
+
+.btn:hover>.hover {
+    display: block;
+}
+
+.btn>.hover .globo {
+    display: inline-block;
+    background: url(../img/registro/Registrate-Hover.png) no-repeat;
+    background-size: contain;
+    padding: 20px 15px 0px 15px;
+    width: 309px;
+    min-height: 115px;
+    color: #3D5DA6;
+    line-height: 1.2em;
+}
+
+.btn>.hover img {
+    display: inline-block;
+    width: 98px;
+    margin-left: -35px;
+    vertical-align: top;
+}
+
+.verifica-lista button>img {
+    margin-right: 2em;
+}
+
+.modal .close {
+    color: #e67d23;
+    font-size: 2em;
+}
+
+.modal .btn.btn-secondary {
+    background-color: #e67d23;
+    border-color: #e67d23;
+}
+
+.modal .btn.btn-secondary:hover {
+    background-color: #fbb83b;
+}
+
+.btn:hover {
+    text-decoration: underline;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.subtitle .fecha {
+    font-size: 0.6em;
+}
+
+.noticia-imagen {
+    display: inline;
+    width: 60%;
+    float: right;
+    margin: 15px 0 10px 15px;
+    color: #3D5DA6;
+    font-size: 0.8em;
+    line-height: 1em;
+    text-align: center;
+}
+
+.noticia-imagen img {
+    margin-bottom: 10px !important;
+}
+
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 34px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* line 131 */
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 32px;
+}
+
+
+/* line 139 */
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 32px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px;
+}
+
+@media(max-width:768px) {
+    body {
+        font-size: 0.9em;
+    }
+    img {
+        margin-bottom: 20px !important;
+        margin-top: 20px !important;
+    }
+    main.container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    main.container .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    #homeSlider .carousel-indicators>li {
+        width: 36%;
+        height: auto;
+        padding: 15px 10px 10px 10px;
+    }
+    .registro_triada a {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .normativas .normativa {
+        width: 100%;
+        display: block;
+    }
+    .subsections ol {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .subsections li {
+        width: 45%;
+    }
+    div.block {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .w-sm-50 {
+        max-width: 50%;
+    }
+    .verifica-lista {
+        padding-left: 10px;
+        padding-right: 5px;
+    }
+    #estrategiasexcelencia {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .noticia-imagen {
+        display: block;
+        width: 80%;
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+#ejemploSlider .carousel-indicators {
+    bottom: -50px;
+}
+
+#ejemploSlider .carousel-indicators li {
+    border: solid 2px #005ca9;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+}
+
+.mb,
+.my-5 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px
+}
+
+.row1 {
+    margin-top: 1rem!important;
+    margin-left: 30;
+    margin-right: 20;
+}
+
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: 0;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
+
+.btn {
+    position: inherit;
+    margin-top: 20;
+}
