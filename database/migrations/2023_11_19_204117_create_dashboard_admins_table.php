@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('dashboard_admins', function (Blueprint $table) {
             $table->id();
+            $table->string('datos', 5000)->nullable();
             $table->timestamps();
         });
     }

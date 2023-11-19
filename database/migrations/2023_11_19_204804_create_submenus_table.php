@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('submenus', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('link_interno')->nullable();
+            $table->string('link_externo')->nullable();
+            $table->unsignedBigInteger('menu_id');
+            $table->foreign('menu_id')->references('id')->on('menus')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('paginas', function (Blueprint $table) {
             $table->id();
+            $table->string('patron');
+            $table->string('link_interno')->unique();
+            $table->string('titulo');
+            $table->string('logo');
+            $table->string('banner');
+            $table->string('link_banner');
+            $table->string('cuerpo', 5000);
             $table->timestamps();
         });
     }
