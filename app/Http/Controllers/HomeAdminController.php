@@ -31,7 +31,8 @@ class HomeAdminController extends Controller
             return view('inicioAdmin', compact('extension'));
         } else {
             echo "<script>alert('Datos erróneos');</script>";
-            return view('homeAdmin');
+            $request = new Request();
+            return $this->homeAdmin($request);
         }
     }
 
