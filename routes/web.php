@@ -26,3 +26,4 @@ Route::get('/dashboardAdmin', [HomeAdminController::class, 'dashboardAdmin'])->n
 Route::get('/logout', [HomeAdminController::class, 'logout'])->name('logout');
 Route::get('/loadView/{id}',[HomeAdminController::class, 'loadView'])->name('loadView');
 Route::post('/saveFile',[HomeAdminController::class, 'saveFile'])->name('saveFile');
+Route::get('/menuAdmin',[HomeAdminController::class, 'menuAdmin'])->name('menuAdmin');

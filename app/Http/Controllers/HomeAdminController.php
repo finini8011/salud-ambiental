@@ -183,6 +183,12 @@ class HomeAdminController extends Controller
         return back()->with('mensaje', 'Datos guardados');
     }
 
+    public function menuAdmin()
+    {
+        $extension = '';
+        return view('menuAdmin', compact('extension'));
+    }
+
     /* 
     public function menuPrincipalAdmin(Request $request)
     {
@@ -279,12 +285,6 @@ class HomeAdminController extends Controller
     {
         $extension = '';
         return view('aireAdmin', compact('extension'));
-    }
-
-    public function menuAdmin()
-    {
-        $extension = '';
-        return view('menuAdmin', compact('extension'));
     }
 
     public function transversalesAdmin()
