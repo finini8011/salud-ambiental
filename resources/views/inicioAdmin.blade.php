@@ -20,13 +20,13 @@
             </div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown no-arrow">
-                    <a class="btn btn-primary" href="{{ route('homeAdmin') }}">Cerrar Sesión</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}">Cerrar Sesión</a>
                 </li>
             </ul>
         </nav>
         <!-- Header-->
-        <header class="py-5">
-            <div class="container px-lg-5">
+        <header class="py-3">
+            <div class="container px-lg-12">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
                         <h1 class="display-8 fw-bold">Módulo de Inicio (Home)</h1>
@@ -63,7 +63,7 @@
             </div>
         </section>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-3 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Salud Ambiental Bogotá 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->

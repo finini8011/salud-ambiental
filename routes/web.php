@@ -23,3 +23,6 @@ Route::get('/', [InicioController::class, 'index']);
 Route::get('/homeAdmin', [HomeAdminController::class, 'homeAdmin'])->name('homeAdmin');
 Route::post('/inicioAdmin', [HomeAdminController::class, 'inicioAdmin'])->name('inicioAdmin');
 Route::get('/dashboardAdmin', [HomeAdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
+Route::get('/logout', [HomeAdminController::class, 'logout'])->name('logout');
+Route::get('/loadView/{id}',[HomeAdminController::class, 'loadView'])->name('loadView');
+Route::post('/saveFile',[HomeAdminController::class, 'saveFile'])->name('saveFile');
