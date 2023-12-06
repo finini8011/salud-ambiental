@@ -8,7 +8,7 @@
 
     <div class="card" id="card1">
         <div class="card-header bg-secondary">
-        <h1 class="h4 mb-0 text-gray-500">{!! nl2br($menu[0]['nombre']) !!}</h1>
+        <h1 class="h4 mb-0 text-gray-500">Consolidado de páginas del sitio</h1>
         </div>
         <div class="card-body login-card-body">
             <table class="table">
