@@ -192,24 +192,25 @@
         $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var id = button.data('id') // Extract info from data-* attributes
-        var nombre = $("#n"+id).text() // Extract info from data-* attributes
-        var link_interno = $("#li"+id).text() // Extract info from data-* attributes
-        var link_externo = $("#le"+id).text() // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var menuid = button.data('menuid') // Extract info from data-* attributes
+        var nombre = $("#n"+menuid+"-"+id).text() // Extract info from data-* attributes
+        var link_interno = $("#li"+menuid+"-"+id).text() // Extract info from data-* attributes
+        var link_externo = $("#le"+menuid+"-"+id).text() // Extract info from data-* attributes
         var modal = $(this)
         modal.find('#nombre').val(nombre)
         modal.find('#link_interno').val(link_interno)
         modal.find('#link_externo').val(link_externo)
         modal.find('#idSubmenu').val(id)
+        modal.find('#menuId').val(menuid)
         });
 
         $(function() {
             $('#btn-guardar').click( function(){
+                numero = $("#menuId").val();
                 if( $('#nombre').val() !== '' && $('#link').val() !== '' ) {
                     $.ajax({
                         method: "POST",
-                        url: "{{asset('edit_submenu/1')}}",
+                        url: "{{asset('edit_submenu')}}/"+numero,
                         data: {
                             nombre: $("#nombre").val() ,
                             link_interno: $("#link_interno").val(),
@@ -220,23 +221,24 @@
                     .done(function( data ) {
                         if(data[1]) {
                             data = data[0];
-                            $("#n"+data.id).text(data.nombre);
-                            $("#li"+data.id).text(data.link_interno);
-                            $("#le"+data.id).text(data.link_externo);
+                            $("#n"+data.menu_id+"-"+data.id).text(data.nombre);
+                            $("#li"+data.menu_id+"-"+data.id).text(data.link_interno);
+                            $("#le"+data.menu_id+"-"+data.id).text(data.link_externo);
                         } else {
                             data = data[0];
-                            document.getElementById("tabla_submenus").innerHTML="";
+                            console.log(data);
+                            document.getElementById("tabla_submenus"+data[0]?.menu_id).innerHTML="";
                             fila = "";
                             data.forEach((element) => {
                                 fila += "<tr>";
-                                fila += "<td id='n"+ element.id +"'>"+element.nombre+"</td>";
-                                fila += "<td id='li"+ element.id +"'>"+element.link_interno+"</td>";
-                                fila += "<td id='le"+ element.id +"'>"+element.link_externo+"</td>";
+                                fila += "<td id='n"+ element.menu_id + "-" + element.id +"'>"+element.nombre+"</td>";
+                                fila += "<td id='li"+ element.menu_id + "-" + element.id +"'>"+(element.link_interno ? element.link_interno : '')+"</td>";
+                                fila += "<td id='le"+ element.menu_id + "-" + element.id +"'>"+(element.link_externo ? element.link_externo : '')+"</td>";
                                 fila += "<td>";
-                                fila += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id="'+element.id+'">Editar</button>';
+                                fila += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id="'+element.id+'" data-menuid="'+element.menu_id+'">Editar</button>';
                                 fila += "</td></tr>";
                             });
-                            document.getElementById("tabla_submenus").innerHTML = fila;
+                            document.getElementById("tabla_submenus"+data[0]?.menu_id).innerHTML = fila;
                         }
                         
                         $('#exampleModal').modal('hide');

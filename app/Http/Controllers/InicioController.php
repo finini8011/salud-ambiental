@@ -21,11 +21,11 @@ class InicioController extends Controller
         $menu = json_decode($menuTemp, true);
         $dataTemp = dashboard_admin ::all();
         $data = json_decode($dataTemp, true);
-        $submenuTemp1 = Submenu::join('menus','menu_id', '=', 'menus.id')->select('submenus.id','submenus.nombre', 'submenus.link_interno', 'submenus.link_externo', 'menus.nombre as NombreMenu')->get();
-        $submenu1 = json_decode($submenuTemp1, true);
+        $submenuTemp1 = Submenu::join('menus','menu_id', '=', 'menus.id')->select('submenus.id','submenus.nombre', 'submenus.link_interno', 'submenus.link_externo', 'submenus.menu_id', 'menus.nombre as NombreMenu')->get();
+        $submenu = json_decode($submenuTemp1, true);
         $transveralesTemp = Transversal::where("activo", 1)->get();
         $transversales = json_decode($transveralesTemp, true);
-        return view("home", compact('data', 'menu', 'submenu1', 'transversales'));
+        return view("home", compact('data', 'menu', 'submenu', 'transversales'));
     }
     public function notFound()
     {
