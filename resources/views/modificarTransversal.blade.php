@@ -16,6 +16,10 @@
                     <input id="toggle-event" type="checkbox" <?= $transversales['activo'] ? 'checked' : '' ?> data-width="100" data-toggle="toggle" data-size="sm" data-on="Activo" data-off="Inactivo">
                 </div>
                 <div class="form-group">
+                    <label for="texto">Patrón</label>
+                    <input type="text" class="form-control form-control-user" name="patron" value="{{ $id != 0 ? $transversales['patron'] : '' }}">
+                </div>
+                <div class="form-group">
                     <label for="titulo">Título</label>
                     <input type="text" class="form-control form-control-user" name="titulo" value="{{ $id != 0 ? $transversales['titulo'] : '' }}">
                 </div>
