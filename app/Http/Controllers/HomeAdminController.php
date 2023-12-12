@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archivo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\dashboard_admin;
 use App\Models\Menu;
 use App\Models\Pagina;
 use App\Models\Submenu;
+use App\Models\Submenu2;
 use App\Models\Transversal;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,7 +28,9 @@ class HomeAdminController extends Controller
         $data = json_decode($dataTemp, true);
         $transveralesTemp = Transversal::where("activo", 1)->get();
         $transversales = json_decode($transveralesTemp, true);
-        return view('homeAdmin', compact('data', 'menu', 'submenu', 'transversales'));
+        $submenu2Temp = Submenu2::all();
+        $submenu2 = json_decode($submenu2Temp, true);
+        return view('homeAdmin', compact('data', 'menu', 'submenu', 'transversales', 'submenu2'));
     }
 
     public function inicioAdmin(Request $request)
@@ -190,6 +195,12 @@ class HomeAdminController extends Controller
         return view('menuAdmin', compact('extension'));
     }
 
+    public function archivosAdmin()
+    {
+        $extension = '';
+        return view('archivosAdmin', compact('extension'));
+    }
+
     public function menuPrincipalAdmin(Request $request)
     {
         $dataTemp = dashboard_admin::all();
@@ -229,6 +240,18 @@ class HomeAdminController extends Controller
         return view('submenuAdmin', compact('menu', 'submenu', 'extension'));
     }
 
+    public function submenu2Admin(Request $request)
+    {
+        $menuTemp = Menu::all();
+        $menu = json_decode($menuTemp, true);
+        $submenuTemp1 = Submenu::join('menus','menu_id', '=', 'menus.id')->select('submenus.id','submenus.nombre', 'submenus.link_interno', 'submenus.link_externo', 'submenus.menu_id', 'menus.nombre as NombreMenu')->get();
+        $submenu = json_decode($submenuTemp1, true);
+        $extension = '';
+        $submenu2Temp = Submenu2::all();
+        $submenu2 = json_decode($submenu2Temp, true);
+        return view('submenu2Admin', compact('menu', 'submenu', 'extension', 'submenu2'));
+    }
+
     public function editSubmenu(Request $request, $id)
     {
         if (!$submenu = Submenu::where("id", $request->input('id'))->first()) {
@@ -240,6 +263,25 @@ class HomeAdminController extends Controller
             $submenu->save();
             return [Submenu::where("menu_id", $id)->get(), 0];
         }
+        $submenu->nombre = $request->input('nombre');
+        $submenu->link_interno = $request->input('link_interno');
+        $submenu->link_externo = $request->input('link_externo');
+        $submenu->save();
+        return [$submenu, 1];
+    }
+
+    public function editSubmenu2(Request $request)
+    {
+        if (!$submenu = Submenu2::where("id", $request->input('id'))->first()) {
+            $submenu = new Submenu2();
+            $submenu->submenu_id = $request->input('submenu_id');
+            $submenu->nombre = $request->input('nombre');
+            $submenu->link_interno = $request->input('link_interno');
+            $submenu->link_externo = $request->input('link_externo');
+            $submenu->save();
+            return [Submenu2::all(), 0];
+        }
+        $submenu->submenu_id = $request->input('submenu_id');
         $submenu->nombre = $request->input('nombre');
         $submenu->link_interno = $request->input('link_interno');
         $submenu->link_externo = $request->input('link_externo');
@@ -298,7 +340,9 @@ class HomeAdminController extends Controller
         $data = json_decode($dataTemp, true);
         $transveralesTemp = Transversal::where("activo", 1)->get();
         $transversales = json_decode($transveralesTemp, true);
-        return view('plantillaGeneral', compact('pagina', 'menu', 'submenu', 'data', 'transversales', 'menuId'));
+        $submenu2Temp = Submenu2::all();
+        $submenu2 = json_decode($submenu2Temp, true);
+        return view('plantillaGeneral', compact('pagina', 'menu', 'submenu', 'data', 'transversales', 'menuId', 'submenu2'));
     }
 
     public function loadViewMenuTransversal(Request $request, $id, $menuId)
@@ -312,7 +356,9 @@ class HomeAdminController extends Controller
         $transveralesTemp = Transversal::where("activo", 1)->get();
         $transversales = json_decode($transveralesTemp, true);
         $transveralId = Transversal::where("activo", 1)->where("link_interno", $id)->first();
-        return view('plantillaTransversal', compact('menu', 'submenu', 'data', 'transversales', 'menuId', 'transveralId'));
+        $submenu2Temp = Submenu2::all();
+        $submenu2 = json_decode($submenu2Temp, true);
+        return view('plantillaTransversal', compact('menu', 'submenu', 'data', 'transversales', 'menuId', 'transveralId', 'submenu2'));
     }
 
     public function paginasAdmin()
@@ -323,6 +369,16 @@ class HomeAdminController extends Controller
         $paginas = json_decode($paginasTemp, true);
         $extension = '';
         return view('paginasAdmin', compact('menu', 'paginas', 'extension'));
+    }
+
+    public function subirArchivosAdmin()
+    {
+        $menuTemp = Menu::all();
+        $menu = json_decode($menuTemp, true);
+        $archivosTemp = Archivo::all(); //join('menus','menu_id', '=', 'menus.id')->where("menu_id", 1)->select('submenus.id','submenus.nombre', 'submenus.link_interno', 'submenus.link_externo', 'menus.nombre as NombreMenu')->get();
+        $archivos = json_decode($archivosTemp, true);
+        $extension = '';
+        return view('subirArchivosAdmin', compact('menu', 'archivos', 'extension'));
     }
 
     public function crearModificarPagina(Request $request, $id)
@@ -358,6 +414,51 @@ class HomeAdminController extends Controller
             $paginas->save();
         }
         return back()->with('mensaje', 'Datos guardados');
+    }
+
+    public function saveArchivo(Request $request)
+    {
+        try {
+            $file = $request->file;
+            $originalName = $file->getClientOriginalName();
+            $path = Storage::putFile('uploads', $file);
+            $fileName = basename(Storage::url($path));
+            $archivos = new Archivo();
+            $archivos->descripcion = $request->descripcion;
+            $archivos->filename = $fileName;
+            $archivos->originalName = $originalName;
+            $archivos->save();
+        } catch (Exception $e) {
+            return back()->with('mensaje', $e->getMessage());
+        }
+        return back()->with('mensaje', 'Datos guardados');
+    }
+
+    public function deleteArchivo(Request $request, $id)
+    {
+        $archivo = Archivo::find($id);
+        $archivo->delete();
+        return back()->with('mensaje', 'Archivo eliminado');
+    }
+
+    public function downloadFile(request $request, $archivo)
+    {
+        if(!$datoArchivo = Archivo::where("originalName",$archivo)->first()) {
+            return back()->with('mensaje', 'Archivo no existente');
+        }
+        $nombreArchivo = $datoArchivo->filename;
+        $file = storage_path('app\uploads\\' . $nombreArchivo);
+        return response()->download($file, $archivo);
+    }
+
+    public function calendarioAdmin()
+    {
+        $menuTemp = Menu::all();
+        $menu = json_decode($menuTemp, true);
+        $archivosTemp = Archivo::all(); //join('menus','menu_id', '=', 'menus.id')->where("menu_id", 1)->select('submenus.id','submenus.nombre', 'submenus.link_interno', 'submenus.link_externo', 'menus.nombre as NombreMenu')->get();
+        $archivos = json_decode($archivosTemp, true);
+        $extension = '';
+        return view('calendarioAdmin', compact('menu', 'archivos', 'extension'));
     }
 
     /*

@@ -3,7 +3,7 @@
 
 @section('styles')
 
-    <link rel="stylesheet" type="text/css" media="screen" href="{{asset("css/news.css")}}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('css/news.css')}}" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
 @endsection
@@ -218,7 +218,7 @@
                             
                           </div>
                          <div class="text-right mt-2">
-                            <div class="btn yellow"><a href="{{asset("politica_cronica")}}">Crónicas de ciudad</a></div>
+                            <div class="btn yellow"><a href="{{asset('politica_cronica')}}">Crónicas de ciudad</a></div>
                            </div>
                          </li>
                        </ol>
@@ -800,10 +800,10 @@ $('#popupModal').modal('show');
 
 </script>
 
-<script type='text/javascript'  src="{{asset("js/news/news.js")}}"></script>
+<script type='text/javascript'  src="{{asset('js/news/news.js')}}"></script>
 @endsection
 @section('scripts')
-<script type='text/javascript'  src="{{asset("js/news/news.js")}}"></script>
+<script type='text/javascript'  src="{{asset('js/news/news.js')}}"></script>
 
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152412441-1"></script>

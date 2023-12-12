@@ -7,6 +7,9 @@
     <title>Home - Dashboard</title>
 
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('css/modalCalendar.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -36,7 +39,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('menuAdmin') }}">
+                <a class="nav-link" href="{{ route('archivosAdmin') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Menús de Temas</span></a>
             </li>
@@ -44,7 +47,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            @include('menusIzquierdosME')
+            @include('menusIzquierdosAR')
 
         </ul>
         <!-- End of Sidebar -->
@@ -144,6 +147,14 @@
         </div>
     </div>
 
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Cerrar" class="close" onclick=CloseModal()>X</a>
+            <h2 id="titulo"></h2>
+            <p id="cuerpo"></p>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -153,6 +164,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/locale/es.js'></script>
 
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
@@ -250,85 +268,6 @@
 
             });
         });
-
-        $('#exampleModal2').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var id = button.data('id') // Extract info from data-* attributes
-            var nombre = $("#n"+id).text() // Extract info from data-* attributes
-            var link_interno = $("#li"+id).text() // Extract info from data-* attributes
-            var link_externo = $("#le"+id).text() // Extract info from data-* attributes
-            var submenu_id = $("#sm"+id+" option:selected").val() // Extract info from data-* attributes
-            var modal = $(this)
-            modal.find('#nombre').val(nombre)
-            modal.find('#link_interno').val(link_interno)
-            modal.find('#link_externo').val(link_externo)
-            modal.find('#idSubmenu2').val(id)
-            $.ajax({
-                method: "GET",
-                url: "{{asset('obtener_submenus')}}",
-                data: {}
-            })
-            .done(function( data ) {
-                $('#submenu_id').html('');
-                let opciones = '';
-                for (let i = 0; i < data.length; i++) {
-                    opciones += '<option value="'+data[i].id+'" ' + (data[i].id == submenu_id ? 'selected' : '') +'>' + data[i].nombre + '</option>';
-                }
-                $('#submenu_id').html(opciones);
-                console.log($("#submenu_id").val())
-            });
-        });
-
-        $(function() {
-            $('#btn-guardar2').click( function(){
-                if( $('#nombre').val() !== '' && $('#link').val() !== '' ) {
-                    $.ajax({
-                        method: "POST",
-                        url: "{{asset('edit_submenu2')}}",
-                        data: {
-                            nombre: $("#nombre").val() ,
-                            link_interno: $("#link_interno").val(),
-                            link_externo: $("#link_externo").val(),
-                            submenu_id: $("#submenu_id").val(),
-                            id: $("#idSubmenu2").val()
-                        }
-                    })
-                    .done(function( data ) {
-                        if(data[1]) {
-                            data = data[0];
-                            $("#n"+data.id).text(data.nombre);
-                            $("#li"+data.id).text(data.link_interno);
-                            $("#le"+data.id).text(data.link_externo);
-                            $("#sm"+data.id).text(data.submenu_id);
-                        } else {
-                            data = data[0];
-                            console.log(data);
-                            document.getElementById("tabla_submenus").innerHTML="";
-                            fila = "";
-                            data.forEach((element) => {
-                                fila += "<tr>";
-                                fila += "<td id='n"+ element.id +"'>" + element.nombre+"</td>";
-                                fila += "<td id='li"+ element.id +"'>"+(element.link_interno ? element.link_interno : '')+"</td>";
-                                fila += "<td id='le"+ element.id +"'>"+(element.link_externo ? element.link_externo : '')+"</td>";
-                                fila += "<td id='sm"+ element.id +"'>"+ element.submenu_id +"</td>";
-                                fila += "<td>";
-                                fila += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-id="'+element.id+'">Editar</button>';
-                                fila += "</td></tr>";
-                            });
-                            document.getElementById("tabla_submenus").innerHTML = fila;
-                        }
-                        
-                        $('#exampleModal2').modal('hide');
-                        location.reload();
-                    });
-                } else {
-                    $('#exampleModal2').modal('hide');
-                    $('#infoModal').modal('show');
-                }
-
-            });
-        });
-
         $(function() {
             $('#toggle-event').change(function() {
                 if(document.getElementById('toggle-event').checked) {
@@ -338,6 +277,109 @@
                 }
             })
         })
+
+        function CloseModal() {
+            document.getElementById('openModal').style.display = 'none';
+        }
+
+        $(document).ready(function() {
+
+            // initialize calendar in all events
+            var calendar = $('#calendar').fullCalendar({
+                initialView: 'dayGridMonth',
+                editable: true,
+                locale: 'es',
+                events: "{{ route('calendar.index') }}",
+                displayEventTime: true,
+                eventLimit: true,
+                eventRender: function (event, element, view) {
+                    if (event.allDay === 'true') {
+                            event.allDay = true;
+                    } else {
+                            event.allDay = false;
+                    }
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function (start, end, allDay) {
+                    var event_name = prompt('Event Name:');
+                    if (event_name) {
+                        var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD");
+                        var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
+                        $.ajax({
+                            url: "{{ route('calendar.create') }}",
+                            data: {
+                                title: event_name,
+                                start: start,
+                                end: end
+                            },
+                            type: 'post',
+                            success: function (data) {
+                            iziToast.success({
+                                    position: 'topRight',
+                                    message: 'Event created successfully.',
+                                });
+
+                                calendar.fullCalendar('renderEvent', {
+                                    id: data.id,
+                                    title: event_name,
+                                    start: start,
+                                    end: end,
+                                    allDay: allDay
+                                }, true);
+                                calendar.fullCalendar('unselect');
+                            }
+                        });
+                    }
+                },
+                eventDrop: function (event, delta) {
+                    var start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
+                    var end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD");
+
+                    $.ajax({
+                        url: "{{ route('calendar.edit') }}",
+                        data: {
+                            title: event.title,
+                            start: start,
+                            end: end,
+                            id: event.id,
+                        },
+                        type: "POST",
+                        success: function (response) {
+                            iziToast.success({
+                                position: 'topRight',
+                                message: 'Event updated successfully.',
+                            });
+                        }
+                    });
+                },
+                eventClick: function (event) {
+                    console.log("d".charCodeAt(0))
+                    var start = $.fullCalendar.formatDate(event.start, "dddd DD MMMM [de] YYYY");
+                    document.getElementById('titulo').innerText = start;
+                    document.getElementById('cuerpo').innerText = event.title;
+                    document.getElementById('openModal').style.display = 'block';
+                    /* var eventDelete = confirm('Are you sure to remove event?');
+                    if (eventDelete) {
+                        $.ajax({
+                            type: "post",
+                            url: "{ route('calendar.destroy') }}",
+                            data: {
+                                id: event.id,
+                                _method: 'delete',
+                            },
+                            success: function (response) {
+                                calendar.fullCalendar('removeEvents', event.id);
+                                iziToast.success({
+                                    position: 'topRight',
+                                    message: 'Event removed successfully.',
+                                });
+                            }
+                        });
+                    } */
+                }
+            });
+        });
     </script>
 
 </body>

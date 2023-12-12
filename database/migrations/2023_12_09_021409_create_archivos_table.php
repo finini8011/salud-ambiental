@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('submenu2s', function (Blueprint $table) {
+        Schema::create('archivos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('link_interno');
-            $table->string('link_externo');
-            $table->unsignedBigInteger('submenu_id');
-            $table->foreign('submenu_id')->references('id')->on('submenus')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->string("descripcion", 255);
+            $table->string("filename", 255);
+            $table->string("originalName", 255);
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('submenu2s');
+        Schema::dropIfExists('archivos');
     }
 };

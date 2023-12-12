@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\dashboard_admin;
 use App\Models\Menu;
 use App\Models\Submenu;
+use App\Models\Submenu2;
 use App\Models\Transversal;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class InicioController extends Controller
         $submenu = json_decode($submenuTemp1, true);
         $transveralesTemp = Transversal::where("activo", 1)->get();
         $transversales = json_decode($transveralesTemp, true);
-        return view("home", compact('data', 'menu', 'submenu', 'transversales'));
+        $submenu2Temp = Submenu2::all();
+        $submenu2 = json_decode($submenu2Temp, true);
+        return view("home", compact('data', 'menu', 'submenu', 'transversales', 'submenu2'));
     }
     public function notFound()
     {

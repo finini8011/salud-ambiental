@@ -53,9 +53,9 @@
                     <div class="col-lg-6 col-xxl-4 mb-5">
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-                                <div class="feature text-white"><a class="btn btn-primary btn-lg" href="{{ ('aireAdmin') }}"><i class="bi bi-collection"></i></a></div>
-                                <h2 class="fs-4 fw-bold">Módulo Aire, ruido y radiación electromagnética</h2>
-                                <p class="mb-0">Ingrese aquí para administrar el tema del primer menú</p>
+                                <div class="feature text-white"><a class="btn btn-primary btn-lg" href="{{ ('archivos_admin') }}"><i class="bi bi-collection"></i></a></div>
+                                <h2 class="fs-4 fw-bold">Módulo de Administración de Archivos</h2>
+                                <p class="mb-0">Ingrese aquí para administrar el cargue de los archivos al servidor</p>
                             </div>
                         </div>
                     </div>

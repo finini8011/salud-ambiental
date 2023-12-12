@@ -103,5 +103,10 @@
 
 @endsection
 @section('scripts')
-<script type='text/javascript'  src="{{asset('js/news/news.js')}}"></script>
+    @if ( session('mensaje') )
+        <script>
+            alert("El archivo no existe");
+        </script>
+    @endif
+    <script type='text/javascript'  src="{{asset('js/news/news.js')}}"></script>
 @endsection
