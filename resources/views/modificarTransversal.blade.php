@@ -45,8 +45,7 @@
                 </div>
                 <div class="form-group">
                     <label for="texto">Cuerpo</label>
-                    <br>
-                    <textarea rows="20" cols="120" name="cuerpo">
+                    <textarea class="form-control" rows="20" cols="120" name="cuerpo">
                         {{ $transversales['cuerpo'] }}
                     </textarea>
                 </div>

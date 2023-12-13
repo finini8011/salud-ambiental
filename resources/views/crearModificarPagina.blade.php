@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                     <label for="texto">Cuerpo</label>
-                    <textarea id="basic-example" name="cuerpo">
+                    <textarea class="form-control" rows="20" cols="120" name="cuerpo">
                         {{ $id != 0 ? $pagina['cuerpo'] : '' }}
                     </textarea>
                 </div>
