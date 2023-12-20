@@ -7,7 +7,6 @@
     <title>Home - Dashboard</title>
 
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('css/modalCalendar.css')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
@@ -30,8 +29,8 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <div class="sidebar-brand-text mx-3">Home - Admin</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="inicioAdmin">
+                <div class="sidebar-brand-text mx-3">Inicio - Admin</div>
             </a>
 
             <!-- Divider -->
@@ -147,11 +146,53 @@
         </div>
     </div>
 
-    <div id="openModal" class="modalDialog">
-        <div>
-            <a href="#close" title="Cerrar" class="close" onclick=CloseModal()>X</a>
-            <h2 id="titulo"></h2>
-            <p id="cuerpo"></p>
+    <div class="modal fade" id="ingresarEventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingrese los datos del evento</h5>
+                    <button class="close" type="button" onclick="CloseModal2()" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Título:</label>
+                        <input type="text" class="form-control" id="titulo">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Nombre de la imagen:</label>
+                        <input type="text" class="form-control" id="imagen">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" onclick="CloseModal2()">Cancelar</button>
+                    <button class="btn btn-primary" type="button" onclick="Ingresar()">Aceptar</button>
+                    <input type="hidden" name="start" id="start" value="">
+                    <input type="hidden" name="end" id="end" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Datos del evento</h5>
+                    <button class="close" type="button" onclick="CloseModal()" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2 id="titulo"></h2>
+                    <p id="cuerpo"></p>
+                    <img id="imagenModal" src="" style="width: 100%">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" onclick="CloseModal()">Aceptar</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -208,18 +249,18 @@
         });
 
         $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var id = button.data('id') // Extract info from data-* attributes
-        var menuid = button.data('menuid') // Extract info from data-* attributes
-        var nombre = $("#n"+menuid+"-"+id).text() // Extract info from data-* attributes
-        var link_interno = $("#li"+menuid+"-"+id).text() // Extract info from data-* attributes
-        var link_externo = $("#le"+menuid+"-"+id).text() // Extract info from data-* attributes
-        var modal = $(this)
-        modal.find('#nombre').val(nombre)
-        modal.find('#link_interno').val(link_interno)
-        modal.find('#link_externo').val(link_externo)
-        modal.find('#idSubmenu').val(id)
-        modal.find('#menuId').val(menuid)
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            var menuid = button.data('menuid') // Extract info from data-* attributes
+            var nombre = $("#n"+menuid+"-"+id).text() // Extract info from data-* attributes
+            var link_interno = $("#li"+menuid+"-"+id).text() // Extract info from data-* attributes
+            var link_externo = $("#le"+menuid+"-"+id).text() // Extract info from data-* attributes
+            var modal = $(this)
+            modal.find('#nombre').val(nombre)
+            modal.find('#link_interno').val(link_interno)
+            modal.find('#link_externo').val(link_externo)
+            modal.find('#idSubmenu').val(id)
+            modal.find('#menuId').val(menuid)
         });
 
         $(function() {
@@ -279,7 +320,49 @@
         })
 
         function CloseModal() {
-            document.getElementById('openModal').style.display = 'none';
+            $('#openModal').modal('hide');
+        }
+
+        function CloseModal2() {
+            $('#ingresarEventoModal').modal('hide');
+        }
+
+        function Ingresar() {
+            var start = $("#start").val();
+            var end = $("#end").val();
+            console.log(start);
+            console.log(end);
+            var tit = $("#titulo").val();
+            var img = $("#imagen").val();
+            $.ajax({
+                url: "{{ route('calendar.create') }}",
+                data: {
+                    title: tit,
+                    image: img,
+                    start: start,
+                    end: end
+                },
+                type: 'post',
+                success: function (data) {
+                    console.log(data);
+                    iziToast.success({
+                        position: 'topRight',
+                        message: 'Evento creado satisfactoriamente.',
+                    });
+                    $("#titulo").val('');
+                    $("#imagen").val('');
+                    CloseModal2();
+                    $('#calendar').fullCalendar('renderEvent', {
+                        id: data.data.id,
+                        title: data.data.title,
+                        image: data.data.image,
+                        start: start,
+                        end: end,
+                        allDay: false
+                    }, true);
+                    $('#calendar').fullCalendar('unselect');
+                }
+            });
         }
 
         $(document).ready(function() {
@@ -289,8 +372,8 @@
                 initialView: 'dayGridMonth',
                 editable: true,
                 locale: 'es',
-                events: "{{ route('calendar.index') }}",
-                displayEventTime: true,
+                events: "{{ route('calendar.index') }}", 
+                displayEventTime: false,
                 eventLimit: true,
                 eventRender: function (event, element, view) {
                     if (event.allDay === 'true') {
@@ -302,63 +385,17 @@
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end, allDay) {
-                    var event_name = prompt('Event Name:');
-                    if (event_name) {
-                        var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD");
-                        var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
-                        $.ajax({
-                            url: "{{ route('calendar.create') }}",
-                            data: {
-                                title: event_name,
-                                start: start,
-                                end: end
-                            },
-                            type: 'post',
-                            success: function (data) {
-                            iziToast.success({
-                                    position: 'topRight',
-                                    message: 'Event created successfully.',
-                                });
-
-                                calendar.fullCalendar('renderEvent', {
-                                    id: data.id,
-                                    title: event_name,
-                                    start: start,
-                                    end: end,
-                                    allDay: allDay
-                                }, true);
-                                calendar.fullCalendar('unselect');
-                            }
-                        });
-                    }
-                },
-                eventDrop: function (event, delta) {
-                    var start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
-                    var end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD");
-
-                    $.ajax({
-                        url: "{{ route('calendar.edit') }}",
-                        data: {
-                            title: event.title,
-                            start: start,
-                            end: end,
-                            id: event.id,
-                        },
-                        type: "POST",
-                        success: function (response) {
-                            iziToast.success({
-                                position: 'topRight',
-                                message: 'Event updated successfully.',
-                            });
-                        }
-                    });
+                    $("#ingresarEventoModal").modal("show");
+                    $("#start").val($.fullCalendar.formatDate(start, "YYYY-MM-DD"));
+                    $("#end").val($.fullCalendar.formatDate(end, "YYYY-MM-DD"));
                 },
                 eventClick: function (event) {
                     console.log("d".charCodeAt(0))
                     var start = $.fullCalendar.formatDate(event.start, "dddd DD MMMM [de] YYYY");
                     document.getElementById('titulo').innerText = start;
                     document.getElementById('cuerpo').innerText = event.title;
-                    document.getElementById('openModal').style.display = 'block';
+                    document.getElementById("imagenModal").src = "img/" + event.image;
+                    $("#openModal").modal("show");
                     /* var eventDelete = confirm('Are you sure to remove event?');
                     if (eventDelete) {
                         $.ajax({

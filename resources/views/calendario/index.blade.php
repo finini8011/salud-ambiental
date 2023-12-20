@@ -4,9 +4,37 @@
 @section('styles')
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{asset('css/news.css')}}" />
-    <link rel="stylesheet" type="text/css" media="screen" href="{{asset('css/modalCalendar.css')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
+    <style>
+        .fc-today-button,
+        .fc-prev-button,
+        .fc-next-button
+        {
+            height: 35px !important;
+        }
+        .fc-icon-left-single-arrow:after
+        {
+            top: -30% !important;
+        }
+        .fc-icon-right-single-arrow:after
+        {
+            top: -30% !important;
+        }
+        .fc-title
+        {
+            font-size:medium;
+        }
+        .fc-day-number
+        {
+            font-size: medium;
+        }
+        .fc-day-header
+        {
+            font-size: medium !important;
+        }
+    </style>
+    
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
 @endsection
@@ -27,16 +55,29 @@
         </div>
     </div>
 </div>
-<div id="openModal" class="modalDialog">
-    <div>
-        <a href="#close" title="Cerrar" class="close" onclick=CloseModal()>X</a>
-        <h2 id="titulo"></h2>
-        <p id="cuerpo"></p>
+<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Datos del evento</h5>
+                    <button class="close" type="button" onclick="CloseModal()" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2 id="titulo"></h2>
+                    <p id="cuerpo"></p>
+                    <img id="imagenModal" src="" style="width: 100%">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" onclick="CloseModal()">Aceptar</button>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 @endsection
 @section('scripts')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -44,8 +85,8 @@
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/locale/es.js'></script>
 <script>
     function CloseModal() {
-        document.getElementById('openModal').style.display = 'none';
-    }
+            $('#openModal').modal('hide');
+        }
     $(document).ready(function() {
 
         // pass _token in all ajax
@@ -55,13 +96,13 @@
             }
         });
 
-        // initialize calendar in all events
+        // initialize calendar in all events 
         var calendar = $('#calendar').fullCalendar({
             initialView: 'dayGridMonth',
-            editable: true,
+            editable: false,
             locale: 'es',
             events: "{{ route('calendar.index') }}",
-            displayEventTime: true,
+            displayEventTime: false,
             eventLimit: true,
             eventRender: function (event, element, view) {
                 if (event.allDay === 'true') {
@@ -77,7 +118,8 @@
                 var start = $.fullCalendar.formatDate(event.start, "dddd DD MMMM [de] YYYY");
                 document.getElementById('titulo').innerText = start;
                 document.getElementById('cuerpo').innerText = event.title;
-                document.getElementById('openModal').style.display = 'block';
+                document.getElementById("imagenModal").src = "img/" + event.image;
+                $("#openModal").modal("show");
             }
         });
     });

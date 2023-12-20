@@ -4,6 +4,8 @@
 @section('styles')
 
     <link rel="stylesheet" type="text/css" media="screen" href="{{asset('css/news.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
 @endsection
@@ -317,7 +319,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="inputIconBox"><i class="fas fa-user"></i></span>
                                                         </div>
-                                                        <input id="name" name="nombre" type="text" class="form-control" placeholder="Nombre" required="">
+                                                        <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required="">
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -726,12 +728,12 @@ $('#popupModal').modal('show');
 
     $(function() {
         $('#btn-enviar').click( function(){
-            if(  $('#name').val() !== '' && $('#localidad').val() !== '' && $('#telefono').val() !== '' && $('#temainteres').val() !== '' && $('#correo').val() !== '' && $('#comentarios').val() !== '' && $('#tiponegocio').val() !== '' ) {
+            if(  $('#nombre').val() !== '' && $('#localidad').val() !== '' && $('#telefono').val() !== '' && $('#temainteres').val() !== '' && $('#correo').val() !== '' && $('#comentarios').val() !== '' && $('#tiponegocio').val() !== '' ) {
                 $.ajax({
                     method: "POST",
                     url: "{{asset('email')}}",
                     data: {
-                        nombre: $("#name").val() ,
+                        nombre: $("#nombre").val() ,
                         telefono: $("#telefono").val(),
                         email: $("#correo").val(),
                         localidad: $("#localidad").val(),
@@ -741,6 +743,7 @@ $('#popupModal').modal('show');
                 })
                 .done(function( msg ) {
                     alert( "Proceso exitoso: \n" + msg );
+                    $('#exampleModalLabel').modal('hide');
                 });
             } else {
                 $('#contactModal').modal('hide');
@@ -752,68 +755,45 @@ $('#popupModal').modal('show');
     });
     // MÓDULO CALENDARIO DE EVENTOS//
     document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: [  'dayGrid' ],
-        defaultDate: new Date(),
-        editable: true,
-        lang: 'es',
-        eventLimit: true, // allow "more" link when too many events
-        events: [
-            {
-           title: 'Día internacional del tatuaje  ”.',
-           start: '2023-07-01'
-           },
-            {
-           title: 'Día internacional libre de bolsas  de plástico  ”.',
-           start: '2023-07-03'
-           },
-           {
-           title: 'Día de la conservación del suelo      ”.',
-           start: '2023-07-07'
-           }, 
-           {
-           title: 'Día del Panadero    ”.',
-           start: '2023-07-13'
-           },
-           {
-           title: 'Día del Transportador  ”.',
-           start: '2023-07-16'
-           },
-           {
-           title: 'Día del Bodeguero    ”.',
-           start: '2023-07-19'
-           }
-           
-        
-           
-          
-        ]
+        var calendar = $('#calendar').fullCalendar({
+            initialView: 'dayGridMonth',
+            editable: false,
+            locale: 'es',
+            events: "{{ route('calendar.index') }}",
+            displayEventTime: false,
+            eventLimit: true,
+            header: {
+                left:   'title',
+                center: '',
+                right:  ''
+            },
+            eventRender: function (event, element, view) {
+                if (event.allDay === 'true') {
+                        event.allDay = true;
+                } else {
+                        event.allDay = false;
+                }
+            },
+            selectable: true,
+            selectHelper: true,
+            eventClick: function (event) {
+                console.log("d".charCodeAt(0))
+                var start = $.fullCalendar.formatDate(event.start, "dddd DD MMMM [de] YYYY");
+                document.getElementById('titulo').innerText = start;
+                document.getElementById('cuerpo').innerText = event.title;
+                document.getElementById("imagenModal").src = "img/" + event.image;
+                $("#openModal").modal("show");
+            }
         });
-
-        calendar.render();
-
-        calendar.setOption('locale','es');
     });
 
 
 </script>
 
 <script type='text/javascript'  src="{{asset('js/news/news.js')}}"></script>
-@endsection
-@section('scripts')
-<script type='text/javascript'  src="{{asset('js/news/news.js')}}"></script>
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152412441-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-152412441-1');
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/locale/es.js'></script>
 @endsection
 

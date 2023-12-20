@@ -23,10 +23,11 @@ class EventController extends Controller
 
     public function create(Request $request)
     {
-        $input = $request->only(['title', 'start', 'end']);
+        $input = $request->only(['title', 'image', 'start', 'end']);
 
         $request_data = [
             'title' => 'required',
+            'image' => 'required',
             'start' => 'required',
             'end' => 'required'
         ];
@@ -43,6 +44,7 @@ class EventController extends Controller
 
         $event = Event::create([
             'title' => $input['title'],
+            'image' => $input['image'],
             'start' => $input['start'],
             'end' => $input['end'],
         ]);

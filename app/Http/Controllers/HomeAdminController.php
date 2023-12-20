@@ -44,7 +44,7 @@ class HomeAdminController extends Controller
             "email" => $request->email,
             "password" => $request->pass
         ];
-        if(Auth::attempt($credentials)) {
+        if(Auth::attempt($credentials) || Auth::user()) {
             $extension = '';
             return view('inicioAdmin', compact('extension'));
         } else {
@@ -68,7 +68,7 @@ class HomeAdminController extends Controller
 
     public function loadView(Request $request, $id)
     {
-        $dataTemp = dashboard_admin ::all();
+        $dataTemp = dashboard_admin::all();
         $data = json_decode($dataTemp, true);
         switch ($id) {
             case 'rd':

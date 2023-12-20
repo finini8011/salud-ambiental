@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\PaginasAnexasController;
 use App\Models\Submenu;
 
 /*
@@ -24,6 +26,7 @@ use App\Models\Submenu;
 Route::get('/', [InicioController::class, 'index']);
 
 Route::get('/homeAdmin', [HomeAdminController::class, 'homeAdmin'])->name('homeAdmin');
+Route::get('/inicioAdmin', [HomeAdminController::class, 'inicioAdmin'])->name('inicioAdmin');
 Route::post('/inicioAdmin', [HomeAdminController::class, 'inicioAdmin'])->name('inicioAdmin');
 Route::get('/dashboardAdmin', [HomeAdminController::class, 'dashboardAdmin'])->name('dashboardAdmin');
 Route::get('/logout', [HomeAdminController::class, 'logout'])->name('logout');
@@ -55,6 +58,15 @@ Route::post('calendar/create-event', [EventController::class, 'create'])->name('
 Route::post('calendar/edit-event', [EventController::class, 'edit'])->name('calendar.edit');
 Route::delete('calendar/remove-event', [EventController::class, 'destroy'])->name('calendar.destroy');
 Route::get('/calendario_Admin', [HomeAdminController::class, 'calendarioAdmin'])->name('calendarioAdmin');
+Route::get('/politica_cronica', [PaginasAnexasController::class, 'politicaCronica'])->name('politicaCronica');
+Route::get('/politica_distrital_salud_ambiental', [PaginasAnexasController::class, 'politicaDistritalSaludAmbiental'])->name('politicaDistritalSaludAmbiental');
+Route::get('/vigilancia_salud_ambiental', [PaginasAnexasController::class, 'vigilanciaSaludAmbiental'])->name('vigilanciaSaludAmbiental');
+Route::get('/participacion_ciudadana', [PaginasAnexasController::class, 'participacionCiudadana'])->name('participacionCiudadana');
+Route::get('/favorables', [PaginasAnexasController::class, 'favorables'])->name('favorables');
+Route::get('/acredited', [PaginasAnexasController::class, 'acredited'])->name('acredited');
+Route::get('/preguntas', [PaginasAnexasController::class, 'preguntas'])->name('preguntas');
+Route::get('/oficinas', [PaginasAnexasController::class, 'oficinas'])->name('oficinas');
+Route::post('/email', [EmailController::class, 'sendEmail'])->name('sendEmail');
 
 Route::get('/obtener_submenus', function() {
     $submenuTemp1 = Submenu::orderBy('nombre', 'ASC')->get();
