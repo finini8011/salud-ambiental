@@ -331,6 +331,17 @@ class HomeAdminController extends Controller
 
     public function loadViewMenu(Request $request, $id, $menuId)
     {
+        $coloresMenus = [
+            ["aire", "lineaAire", "colorAire"],
+            ["alimentos", "lineaAlimentos", "colorAlimentos"],
+            ["agua", "lineaAgua", "colorAgua"],
+            ["cambioC", "lineaCambioC", "colorCambioC"],
+            ["espacio", "lineaEspacio", "colorEspacio"],
+            ["colorMedicamentos", "lineaMedicamentos", "colorMedicamentos"],
+            ["colorSeguridadquimica", "lineaQuimica", "colorSeguridadquimica"],
+            ["colorETOZ", "lineaETOZ", "colorETOZ"]
+        ];
+        $color = $coloresMenus[$menuId - 1];
         $menuTemp = Menu::all();
         $menu = json_decode($menuTemp, true);
         $pagina = Pagina::where("link_interno", $id)->first();
@@ -342,11 +353,22 @@ class HomeAdminController extends Controller
         $transversales = json_decode($transveralesTemp, true);
         $submenu2Temp = Submenu2::all();
         $submenu2 = json_decode($submenu2Temp, true);
-        return view('plantillaGeneral', compact('pagina', 'menu', 'submenu', 'data', 'transversales', 'menuId', 'submenu2'));
+        return view('plantillaGeneral', compact('pagina', 'menu', 'submenu', 'data', 'transversales', 'menuId', 'submenu2', 'color'));
     }
 
     public function loadViewMenuTransversal(Request $request, $id, $menuId)
     {
+        $coloresMenus = [
+            ["aire", "lineaAire", "colorAire"],
+            ["alimentos", "lineaAlimentos", "colorAlimentos"],
+            ["agua", "lineaAgua", "colorAgua"],
+            ["cambioC", "lineaCambioC", "colorCambioC"],
+            ["espacio", "lineaEspacio", "colorEspacio"],
+            ["colorMedicamentos", "lineaMedicamentos", "colorMedicamentos"],
+            ["colorSeguridadquimica", "lineaQuimica", "colorSeguridadquimica"],
+            ["colorETOZ", "lineaETOZ", "colorETOZ"]
+        ];
+        $color = $coloresMenus[$menuId - 1];
         $menuTemp = Menu::all();
         $menu = json_decode($menuTemp, true);
         $submenuTemp1 = Submenu::join('menus','menu_id', '=', 'menus.id')->select('submenus.id','submenus.nombre', 'submenus.link_interno', 'submenus.link_externo', 'submenus.menu_id', 'menus.nombre as NombreMenu')->get();
@@ -358,7 +380,7 @@ class HomeAdminController extends Controller
         $transveralId = Transversal::where("activo", 1)->where("link_interno", $id)->first();
         $submenu2Temp = Submenu2::all();
         $submenu2 = json_decode($submenu2Temp, true);
-        return view('plantillaTransversal', compact('menu', 'submenu', 'data', 'transversales', 'menuId', 'transveralId', 'submenu2'));
+        return view('plantillaTransversal', compact('menu', 'submenu', 'data', 'transversales', 'menuId', 'transveralId', 'submenu2', 'color'));
     }
 
     public function paginasAdmin()

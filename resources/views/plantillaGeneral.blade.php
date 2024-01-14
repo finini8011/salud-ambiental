@@ -11,7 +11,7 @@
                     <br clear="left">
                     <img src="{{asset('img/iconoHome.png')}}" width="42" height="38" alt="Ir al home" />
                     <span class="breadcrumb_"> | {{$pagina['patron']}} |</span>
-                    <span class="breadcrumb_ aire">{{ $pagina['titulo'] }}</span>
+                    <span class="breadcrumb_ {{ $color[0] }}">{{ $pagina['titulo'] }}</span>
                     <div width="300px">
                         <img src="{{asset($pagina['logo'])}}" width="100%" alt="" />
                     </div>
@@ -69,7 +69,7 @@
                         </a>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="text-align:justify;">
                 <div class="contenidoSecAmb centradoDiv">
                     {!! nl2br($pagina['cuerpo']) !!}
                 </div>
@@ -78,14 +78,14 @@
             </div>
 
             <div class="row">
-               <hr class="lineaAire mt80" style="width: 100%;">
+               <hr class="{{ $color[1] }} mt80" style="width: 100%;">
             </div>
 
-            <div class="logos colorAire bold140p">
+            <div class="logos {{ $color[2] }} bold140p">
                 @foreach($transversales as $data)
                     @if($data['menu_id'] == $menuId)
-                        <div class="centrado colorAire">
-                            <p class="colorAire">{{ $data['titulo'] }}</p>
+                        <div class="centrado {{ $color[2] }}">
+                            <p class="{{ $color[2] }}">{{ $data['titulo'] }}</p>
                             <a href="{{asset('loadViewMenuTransversal/' . $data['link_interno']) . '/' . $menuId }}">
                                 <img src="{{asset($data['logo_boton'])}}" width="85" height="63">
                             </a>

@@ -42,12 +42,14 @@
 <div class="wrapper min-ancho">
     <div class="container-fluid">
         <div class="row">
-            <div class="row justify-content-center">
-                <div class="mt-3 mb-3 container-calendar">
-                    <div style="height: 600px; width: 800px;">
-                        <label>Calendario de eventos Salud Ambiental</label>
-                        <div class="col-10 offset-1" >
-                            <div id='calendar'></div>
+            <div class="col-9 offset-1">
+                <div class="row justify-content-center">
+                    <div class="mt-3 mb-3 container-calendar">
+                        <div style="height: 600px; width: 800px;">
+                            <label>Calendario de eventos Salud Ambiental</label>
+                            <div class="col-10 offset-1" >
+                                <div id='calendar'></div>
+                            </div>
                         </div>
                     </div>
                 </div>

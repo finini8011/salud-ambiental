@@ -51,7 +51,6 @@
                     @endforeach
                 </tbody>
             </table>
-            <a href="crear_modificar_pagina/0" class="btn btn-info" >Nuevo</a>
         </div>
     </div>
 @endsection
