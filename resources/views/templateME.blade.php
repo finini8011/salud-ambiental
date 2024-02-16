@@ -190,24 +190,24 @@
         });
 
         $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var id = button.data('id') // Extract info from data-* attributes
-        var menuid = button.data('menuid') // Extract info from data-* attributes
-        var nombre = $("#n"+menuid+"-"+id).text() // Extract info from data-* attributes
-        var link_interno = $("#li"+menuid+"-"+id).text() // Extract info from data-* attributes
-        var link_externo = $("#le"+menuid+"-"+id).text() // Extract info from data-* attributes
-        var modal = $(this)
-        modal.find('#nombre').val(nombre)
-        modal.find('#link_interno').val(link_interno)
-        modal.find('#link_externo').val(link_externo)
-        modal.find('#idSubmenu').val(id)
-        modal.find('#menuId').val(menuid)
+            var button = $(event.relatedTarget)
+            var id = button.data('id') 
+            var menuid = button.data('menuid') 
+            var nombre = $("#n"+menuid+"-"+id).text() 
+            var link_interno = $("#li"+menuid+"-"+id).text() 
+            var link_externo = $("#le"+menuid+"-"+id).text() 
+            var modal = $(this)
+            modal.find('#nombre').val(nombre)
+            modal.find('#link_interno').val(link_interno)
+            modal.find('#link_externo').val(link_externo)
+            modal.find('#idSubmenu').val(id)
+            modal.find('#menuId').val(menuid)
         });
 
         $(function() {
             $('#btn-guardar').click( function(){
                 numero = $("#menuId").val();
-                if( $('#nombre').val() !== '' && $('#link').val() !== '' ) {
+                if( $('#nombre').val() !== '' && $('#link_interno').val() !== '' ) {
                     $.ajax({
                         method: "POST",
                         url: "{{asset('edit_submenu')}}/"+numero,
@@ -244,20 +244,19 @@
                         $('#exampleModal').modal('hide');
                     });
                 } else {
-                    $('#exampleModal').modal('hide');
-                    $('#infoModal').modal('show');
+                    alert("Los campos Nombre y Link Interno no deben ir vacíos.");
                 }
 
             });
         });
 
         $('#exampleModal2').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var id = button.data('id') // Extract info from data-* attributes
-            var nombre = $("#n"+id).text() // Extract info from data-* attributes
-            var link_interno = $("#li"+id).text() // Extract info from data-* attributes
-            var link_externo = $("#le"+id).text() // Extract info from data-* attributes
-            var submenu_id = $("#sm"+id+" option:selected").val() // Extract info from data-* attributes
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var nombre = $("#n"+id).text()
+            var link_interno = $("#li"+id).text()
+            var link_externo = $("#le"+id).text()
+            var submenu_id = $("#sm"+id+" option:selected").val()
             var modal = $(this)
             modal.find('#nombre').val(nombre)
             modal.find('#link_interno').val(link_interno)
@@ -281,7 +280,7 @@
 
         $(function() {
             $('#btn-guardar2').click( function(){
-                if( $('#nombre').val() !== '' && $('#link').val() !== '' ) {
+                if( $('#nombre').val() !== '' && $('#link_interno').val() !== '' ) {
                     $.ajax({
                         method: "POST",
                         url: "{{asset('edit_submenu2')}}",
@@ -322,8 +321,7 @@
                         location.reload();
                     });
                 } else {
-                    $('#exampleModal2').modal('hide');
-                    $('#infoModal').modal('show');
+                    alert("Los campos Nombre y Link Interno no deben ir vacíos.");
                 }
 
             });

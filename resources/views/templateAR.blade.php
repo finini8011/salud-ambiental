@@ -156,13 +156,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                <div class="form-group">
+                    <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Título:</label>
                         <input type="text" class="form-control" id="titulo">
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Nombre de la imagen:</label>
-                        <input type="text" class="form-control" id="imagen">
+                        <select class="form-control" name="imagen_id" id="imagen_id"></select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -246,6 +246,23 @@
             'alignright alignjustify | bullist numlist outdent indent | ' +
             'removeformat | help | code',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
+
+        $('#ingresarEventoModal').on('show.bs.modal', function (event) {
+            $.ajax({
+                method: "GET",
+                url: "{{asset('obtener_archivos_imagenes')}}",
+                data: {}
+            })
+            .done(function( data ) {
+                $('#imagen_id').html('');
+                let opciones = '';
+                for (let i = 0; i < data.length; i++) {
+                    opciones += '<option value="'+data[i].id+'">' + data[i].nombre_archivo + '</option>';
+                }
+                $('#imagen_id').html(opciones);
+                console.log($("#imagen_id").val())
+            });
         });
 
         $('#exampleModal').on('show.bs.modal', function (event) {
@@ -333,12 +350,12 @@
             console.log(start);
             console.log(end);
             var tit = $("#titulo").val();
-            var img = $("#imagen").val();
+            var img = $("#imagen_id").val();
             $.ajax({
                 url: "{{ route('calendar.create') }}",
                 data: {
                     title: tit,
-                    image: img,
+                    imagenes_calendario_id: img,
                     start: start,
                     end: end
                 },
@@ -350,12 +367,12 @@
                         message: 'Evento creado satisfactoriamente.',
                     });
                     $("#titulo").val('');
-                    $("#imagen").val('');
+                    $("#imagen_id").val('');
                     CloseModal2();
                     $('#calendar').fullCalendar('renderEvent', {
                         id: data.data.id,
                         title: data.data.title,
-                        image: data.data.image,
+                        imagen_id: data.data.nombre_archivo,
                         start: start,
                         end: end,
                         allDay: false
@@ -394,7 +411,7 @@
                     var start = $.fullCalendar.formatDate(event.start, "dddd DD MMMM [de] YYYY");
                     document.getElementById('titulo').innerText = start;
                     document.getElementById('cuerpo').innerText = event.title;
-                    document.getElementById("imagenModal").src = "img/" + event.image;
+                    document.getElementById("imagenModal").src = "img/calendario/" + event.nombre_archivo;
                     $("#openModal").modal("show");
                     /* var eventDelete = confirm('Are you sure to remove event?');
                     if (eventDelete) {

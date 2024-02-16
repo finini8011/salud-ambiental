@@ -13,7 +13,7 @@ class EventController extends Controller
         if ($request->ajax()) {
             $events = Event::whereDate('start', '>=', $request->start)
                 ->whereDate('end', '<=', $request->end)
-                ->get();
+                ->join('imagenes_calendarios', 'events.imagenes_calendario_id', '=', 'imagenes_calendarios.id')->get();
 
             return response()->json($events);
         }
@@ -23,11 +23,11 @@ class EventController extends Controller
 
     public function create(Request $request)
     {
-        $input = $request->only(['title', 'image', 'start', 'end']);
+        $input = $request->only(['title', 'imagenes_calendario_id', 'start', 'end']);
 
         $request_data = [
             'title' => 'required',
-            'image' => 'required',
+            'imagenes_calendario_id' => 'required',
             'start' => 'required',
             'end' => 'required'
         ];
@@ -44,7 +44,7 @@ class EventController extends Controller
 
         $event = Event::create([
             'title' => $input['title'],
-            'image' => $input['image'],
+            'imagenes_calendario_id' => $input['imagenes_calendario_id'],
             'start' => $input['start'],
             'end' => $input['end'],
         ]);

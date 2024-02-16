@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label for="texto">Link Interno</label>
-                    <input type="text" class="form-control form-control-user" name="link_interno" value="{{ $id != 0 ? $transversales['link_interno'] : '' }}">
+                    <input type="text" class="form-control form-control-user" name="link_interno" value="{{ $id != 0 ? $transversales['link_interno'] : '' }}" required>
                 </div>
                 <div class="form-group">
                     <label for="logo_boton">Logo de Botón</label>

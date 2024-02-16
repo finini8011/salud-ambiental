@@ -5,14 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class ImagenesCalendario extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'title',
-        'imagenes_calendario_id',
-        'start',
-        'end',
-    ];
 }

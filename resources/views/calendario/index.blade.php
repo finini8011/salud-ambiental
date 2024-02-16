@@ -120,7 +120,7 @@
                 var start = $.fullCalendar.formatDate(event.start, "dddd DD MMMM [de] YYYY");
                 document.getElementById('titulo').innerText = start;
                 document.getElementById('cuerpo').innerText = event.title;
-                document.getElementById("imagenModal").src = "img/" + event.image;
+                document.getElementById("imagenModal").src = "img/calendario/" + event.nombre_archivo;
                 $("#openModal").modal("show");
             }
         });

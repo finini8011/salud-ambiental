@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('imagenes_calendarios', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
-            $table->string('start');
-            $table->string('end');
+            $table->string("descripcion", 255)->nullable();
+            $table->string("nombre_archivo", 255);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('imagenes_calendarios');
     }
 };

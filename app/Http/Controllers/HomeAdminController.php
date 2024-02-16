@@ -6,6 +6,7 @@ use App\Models\Archivo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\dashboard_admin;
+use App\Models\ImagenesCalendario;
 use App\Models\Menu;
 use App\Models\Pagina;
 use App\Models\Submenu;
@@ -258,13 +259,13 @@ class HomeAdminController extends Controller
             $submenu = new Submenu();
             $submenu->menu_id = $id;
             $submenu->nombre = $request->input('nombre');
-            $submenu->link_interno = $request->input('link_interno');
+            $submenu->link_interno = $request->input('link_interno') == '' ? 'url_test' : $request->input('link_interno');
             $submenu->link_externo = $request->input('link_externo');
             $submenu->save();
             return [Submenu::where("menu_id", $id)->get(), 0];
         }
         $submenu->nombre = $request->input('nombre');
-        $submenu->link_interno = $request->input('link_interno');
+        $submenu->link_interno = $request->input('link_interno') == '' ? 'url_test' : $request->input('link_interno');
         $submenu->link_externo = $request->input('link_externo');
         $submenu->save();
         return [$submenu, 1];
@@ -276,14 +277,14 @@ class HomeAdminController extends Controller
             $submenu = new Submenu2();
             $submenu->submenu_id = $request->input('submenu_id');
             $submenu->nombre = $request->input('nombre');
-            $submenu->link_interno = $request->input('link_interno');
+            $submenu->link_interno = $request->input('link_interno') == '' ? 'url_test' : $request->input('link_interno');
             $submenu->link_externo = $request->input('link_externo');
             $submenu->save();
             return [Submenu2::all(), 0];
         }
         $submenu->submenu_id = $request->input('submenu_id');
         $submenu->nombre = $request->input('nombre');
-        $submenu->link_interno = $request->input('link_interno');
+        $submenu->link_interno = $request->input('link_interno') == '' ? 'url_test' : $request->input('link_interno');
         $submenu->link_externo = $request->input('link_externo');
         $submenu->save();
         return [$submenu, 1];
@@ -403,6 +404,16 @@ class HomeAdminController extends Controller
         return view('subirArchivosAdmin', compact('menu', 'archivos', 'extension'));
     }
 
+    public function subirImagenesCalendarioAdmin()
+    {
+        $menuTemp = Menu::all();
+        $menu = json_decode($menuTemp, true);
+        $archivosTemp = Archivo::all(); //join('menus','menu_id', '=', 'menus.id')->where("menu_id", 1)->select('submenus.id','submenus.nombre', 'submenus.link_interno', 'submenus.link_externo', 'menus.nombre as NombreMenu')->get();
+        $archivos = json_decode($archivosTemp, true);
+        $extension = '';
+        return view('subirImagenesCalendario', compact('menu', 'archivos', 'extension'));
+    }
+
     public function crearModificarPagina(Request $request, $id)
     {
         if ($id == 0) {
@@ -450,6 +461,22 @@ class HomeAdminController extends Controller
             $archivos->filename = $fileName;
             $archivos->originalName = $originalName;
             $archivos->save();
+        } catch (Exception $e) {
+            return back()->with('mensaje', $e->getMessage());
+        }
+        return back()->with('mensaje', 'Datos guardados');
+    }
+
+    public function saveImagen(Request $request)
+    {
+        try {
+            $file = $request->file;
+            $originalName = $file->getClientOriginalName();
+            move_uploaded_file($file,  'img/calendario/' . $originalName);
+            $imagen = new ImagenesCalendario();
+            $imagen->descripcion = $request->descripcion;
+            $imagen->nombre_archivo = $originalName;
+            $imagen->save();
         } catch (Exception $e) {
             return back()->with('mensaje', $e->getMessage());
         }

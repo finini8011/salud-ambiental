@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\PaginasAnexasController;
+use App\Models\ImagenesCalendario;
 use App\Models\Submenu;
 
 /*
@@ -47,9 +48,11 @@ Route::get('/loadViewMenu/{id}/{submenuId}',[HomeAdminController::class, 'loadVi
 Route::get('/loadViewMenuTransversal/{id}/{submenuId}',[HomeAdminController::class, 'loadViewMenuTransversal'])->name('loadViewMenuTransversal');
 Route::get('/paginas_Admin',[HomeAdminController::class, 'paginasAdmin'])->name('paginasAdmin');
 Route::get('/subir_archivos_Admin',[HomeAdminController::class, 'subirArchivosAdmin'])->name('subirArchivosAdmin');
+Route::get('/subir_img_calendario_Admin',[HomeAdminController::class, 'subirImagenesCalendarioAdmin'])->name('subirImagenesCalendarioAdmin');
 Route::get('/crear_modificar_pagina/{id}',[HomeAdminController::class, 'crearModificarPagina'])->name('crearModificarPagina');
 Route::post('/save_pagina',[HomeAdminController::class, 'savePagina'])->name('savePagina');
 Route::post('/save_archivo',[HomeAdminController::class, 'saveArchivo'])->name('saveArchivo');
+Route::post('/save_imagen',[HomeAdminController::class, 'saveImagen'])->name('saveImagen');
 Route::get('/eliminar_archivo/{id}',[HomeAdminController::class, 'deleteArchivo'])->name('deleteArchivo');
 Route::get('/download_file/{archivo}', [HomeAdminController::class, 'downloadFile']);
 Route::get('/calendario', [CalendarController::class, 'index'])->name('index');
@@ -71,4 +74,9 @@ Route::post('/email', [EmailController::class, 'sendEmail'])->name('sendEmail');
 Route::get('/obtener_submenus', function() {
     $submenuTemp1 = Submenu::orderBy('nombre', 'ASC')->get();
     return json_decode($submenuTemp1, true);
+});
+
+Route::get('/obtener_archivos_imagenes', function() {
+    $archivosTemp1 = ImagenesCalendario::orderBy('nombre_archivo', 'ASC')->get();
+    return json_decode($archivosTemp1, true);
 });
